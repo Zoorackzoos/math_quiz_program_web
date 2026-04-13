@@ -2,6 +2,7 @@
   "id": "example-chemistry",
   "title": "Chemistry: Stoichiometry",
   "description": "Mole calculations, balancing equations, and unit conversions in basic stoichiometry.",
+  "image": "assets/chemistry_stoichiometry.png",
   "questions": [
     {
       "id": 1,

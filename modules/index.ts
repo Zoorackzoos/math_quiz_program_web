@@ -12,7 +12,7 @@
 // That's it! No other files need to be changed.
 // ============================================================
 
-import { Module } from "../src/types";
+import {Module} from "../src/types";
 
 // -- Import your module JSON files here --
 import exampleAlgebra from "./example-algebra.json";
@@ -21,9 +21,9 @@ import exampleChemistry from "./example-chemistry.json";
 // -- Add every imported module to this array --
 // The order here is the order they appear on the home screen.
 export const allModules: Module[] = [
-  exampleAlgebra as Module,
-  exampleChemistry as Module,
+    exampleAlgebra as Module,
+    exampleChemistry as Module,
 
-  // Add more modules here, e.g.:
-  // myNewModule as Module,
+    // Add more modules here, e.g.:
+    // myNewModule as Module,
 ];

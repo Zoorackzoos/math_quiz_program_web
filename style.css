@@ -68,7 +68,7 @@
 
 html, body {
   height: 100%;
-  font-family: var(--font-body);
+  font-family: var(--font-body), serif;
   font-size: 16px;
   background: var(--color-bg);
   color: var(--color-text);
@@ -168,7 +168,7 @@ input[type="text"] {
 .home-header h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  font-family: var(--font-heading);
+  font-family: var(--font-heading), serif;
   color: var(--color-text);
   letter-spacing: -0.5px;
 }
@@ -749,6 +749,6 @@ input[type="text"] {
 
 .katex-error {
   color: var(--color-wrong);
-  font-family: var(--font-mono);
+  font-family: var(--font-mono), serif;
   font-size: 0.875rem;
 }
