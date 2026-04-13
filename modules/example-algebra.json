@@ -1,0 +1,55 @@
+{
+  "id": "example-algebra",
+  "title": "Algebra Basics",
+  "description": "Practice fundamental algebra: solving for variables, simplifying expressions, and working with linear equations.",
+  "image": "assets/algebra.png",
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "Solve for $x$: $$2x + 4 = 10$$",
+      "type": "text",
+      "correctAnswer": "3",
+      "explanation": "Subtract 4 from both sides to get $2x = 6$, then divide by 2."
+    },
+    {
+      "id": 2,
+      "prompt": "Simplify: $$3x + 5x - 2x$$",
+      "type": "text",
+      "correctAnswer": "6x",
+      "explanation": "Combine like terms: $(3 + 5 - 2)x = 6x$."
+    },
+    {
+      "id": 3,
+      "prompt": "Which of the following is the slope of $y = 3x + 7$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$7$",  "value": "7"  },
+        { "label": "$3$",  "value": "3"  },
+        { "label": "$-3$", "value": "-3" },
+        { "label": "$1$",  "value": "1"  }
+      ],
+      "correctAnswer": "3",
+      "explanation": "In slope-intercept form $y = mx + b$, $m$ is the slope."
+    },
+    {
+      "id": 4,
+      "prompt": "Evaluate: $$\\frac{x^2 - 9}{x - 3} \\text{ when } x = 5$$",
+      "type": "text",
+      "correctAnswer": "8",
+      "explanation": "Factor the numerator: $(x+3)(x-3)/(x-3) = x+3$. Then $5+3=8$."
+    },
+    {
+      "id": 5,
+      "prompt": "What is the $y$-intercept of $2y = 6x - 8$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$-8$", "value": "-8" },
+        { "label": "$3$",  "value": "3"  },
+        { "label": "$-4$", "value": "-4" },
+        { "label": "$6$",  "value": "6"  }
+      ],
+      "correctAnswer": "-4",
+      "explanation": "Divide both sides by 2: $y = 3x - 4$. The $y$-intercept is $-4$."
+    }
+  ]
+}

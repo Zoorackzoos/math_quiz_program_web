@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz App</title>
+
+  <!-- KaTeX: math rendering library. Renders LaTeX expressions in questions. -->
+  <!-- Docs: https://katex.org -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js"></script>
+  <!-- KaTeX auto-render extension: finds and renders $...$ and $$...$$ automatically -->
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js"></script>
+
+  <!-- math.js: evaluates and simplifies arithmetic expressions entered by the user. -->
+  <!-- Docs: https://mathjs.org -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjs@12.4.3/lib/browser/math.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- The entire app renders inside this single div. -->
+  <!-- Screens are swapped in and out by app.ts. -->
+  <div id="app"></div>
+
+  <!-- The compiled TypeScript bundle. -->
+  <!-- Bundled by esbuild/webpack — see README for build instructions. -->
+  <script src="dist/bundle.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "quiz-app",
+  "version": "1.0.0",
+  "description": "Personal quiz / practice problem app",
+  "scripts": {
+    "build": "esbuild main.ts --bundle --outfile=dist/bundle.js --platform=browser --target=es2020",
+    "watch": "esbuild main.ts --bundle --outfile=dist/bundle.js --platform=browser --target=es2020 --watch",
+    "dev": "esbuild main.ts --bundle --outfile=dist/bundle.js --platform=browser --target=es2020 --watch --servedir=."
+  },
+  "devDependencies": {
+    "esbuild": "0.25.0",
+    "typescript": "^5.4.5"
+  }
+}

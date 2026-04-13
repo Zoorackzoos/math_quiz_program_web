@@ -1,0 +1,40 @@
+{
+  "id": "example-chemistry",
+  "title": "Chemistry: Stoichiometry",
+  "description": "Mole calculations, balancing equations, and unit conversions in basic stoichiometry.",
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "How many moles are in $36\\text{ g}$ of water ($M = 18\\text{ g/mol}$)?",
+      "type": "text",
+      "correctAnswer": "2",
+      "explanation": "$n = m/M = 36/18 = 2$ mol."
+    },
+    {
+      "id": 2,
+      "prompt": "Which equation is correctly balanced? $$\\text{H}_2 + \\text{O}_2 \\rightarrow \\text{H}_2\\text{O}$$",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\text{H}_2 + \\text{O}_2 \\rightarrow \\text{H}_2\\text{O}$",            "value": "a" },
+        { "label": "$2\\text{H}_2 + \\text{O}_2 \\rightarrow 2\\text{H}_2\\text{O}$",         "value": "b" },
+        { "label": "$\\text{H}_2 + 2\\text{O}_2 \\rightarrow 2\\text{H}_2\\text{O}$",         "value": "c" },
+        { "label": "$4\\text{H}_2 + \\text{O}_2 \\rightarrow 4\\text{H}_2\\text{O}$",         "value": "d" }
+      ],
+      "correctAnswer": "b",
+      "explanation": "Coefficients 2, 1, 2 balance hydrogen (4) and oxygen (2) on both sides."
+    },
+    {
+      "id": 3,
+      "prompt": "How many molecules are in $1$ mole of $\\text{CO}_2$? (Avogadro's number = $6.022 \\times 10^{23}$)",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$6.022 \\times 10^{22}$", "value": "a" },
+        { "label": "$6.022 \\times 10^{23}$", "value": "b" },
+        { "label": "$6.022 \\times 10^{24}$", "value": "c" },
+        { "label": "$1.000 \\times 10^{23}$", "value": "d" }
+      ],
+      "correctAnswer": "b",
+      "explanation": "By definition, 1 mole of any substance contains exactly $6.022 \\times 10^{23}$ particles."
+    }
+  ]
+}
