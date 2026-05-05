@@ -7,170 +7,192 @@
 
     {
       "id": 1,
-      "prompt": "Given vectors $$u=\\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}, v=\\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}, w=\\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$$. Orthogonality rule: $$u \\cdot v = 0$$. Check all pairwise dot products.",
-      "type": "text",
-      "correctAnswer": "u·v = (1)(0)+(-2)(1)+(1)(2) = 0, u·w = 0, v·w = 0",
+      "prompt": "Given vectors $$u=\begin{bmatrix}1\\-2\\1\end{bmatrix}, v=\begin{bmatrix}0\\1\\2\end{bmatrix}, w=\begin{bmatrix}-5\\-2\\1\end{bmatrix}$$. Orthogonality rule: $$u \cdot v = 0$$. Check all pairwise dot products.",
+      "type": "multiple-choice",
+      "choices": [
+        {"label": "u·v = (1)(0)+(-2)(1)+(1)(2) = 0, u·w = 0, v·w = 0", "value": "A"},
+        {"label": "u·v ≠ 0", "value": "B"},
+        {"label": "Only one dot product is 0", "value": "C"},
+        {"label": "None are 0", "value": "D"}
+      ],
+      "correctAnswer": "A",
       "explanation": "All dot products equal 0 so vectors are orthogonal."
+    }1\\\\-2\\\\1\\end{bmatrix}, v=\\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}, w=\\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$$. Orthogonality rule: $$u \\cdot v = 0$$. Check all pairwise dot products.",
+    "type": "multiple-choice",
+    "correctAnswer": "u·v = (1)(0)+(-2)(1)+(1)(2) = 0, u·w = 0, v·w = 0",
+    "explanation": "All dot products equal 0 so vectors are orthogonal."
     },
 
     {
-      "id": 2,
-      "prompt": "Independence rule: orthogonal nonzero vectors are independent. Using results from dot products above.",
-      "type": "text",
-      "correctAnswer": "independent = orthogonal + nonzero",
-      "explanation": "All vectors are nonzero and orthogonal."
+    "id": 2,
+    "prompt": "Independence rule: orthogonal nonzero vectors are independent. Using results from dot products above.",
+    "type": "multiple-choice",
+    "choices": [
+    {"label": "independent = orthogonal + nonzero", "value": "A"},
+    {"label": "independent = dependent", "value": "B"},
+    {"label": "independent = 0", "value": "C"},
+    {"label": "independent = pivots only", "value": "D"}
+    ],
+    "correctAnswer": "A",
+    "explanation": "All vectors are nonzero and orthogonal."
     },
 
     {
-      "id": 3,
-      "prompt": "Span rule in R^3: 3 independent vectors span R^3.",
-      "type": "text",
-      "correctAnswer": "span = 3 independent vectors",
-      "explanation": "Dimension equals number of independent vectors."
+    "id": 3,
+    "prompt": "Span rule in R^3: 3 independent vectors span R^3.",
+    "type": "multiple-choice",
+    "choices": [
+    {"label": "span = 3 independent vectors", "value": "A"},
+    {"label": "span = 2 vectors", "value": "B"},
+    {"label": "span = 1 vector", "value": "C"},
+    {"label": "span = none", "value": "D"}
+    ],
+    "correctAnswer": "A",
+    "explanation": "Dimension equals number of independent vectors."
     },
 
     {
-      "id": 4,
-      "prompt": "Basis rule: basis = independent + span.",
-      "type": "text",
-      "correctAnswer": "basis = independent + span",
-      "explanation": "Both conditions satisfied."
+    "id": 4,
+    "prompt": "Basis rule: basis = independent + span.",
+    "type": "multiple-choice",
+    "correctAnswer": "basis = independent + span",
+    "explanation": "Both conditions satisfied."
     },
 
     {
-      "id": 5,
-      "prompt": "Given matrix $$A=\\begin{bmatrix}1&0&-5\\\\-2&1&0\\\\1&2&5\\end{bmatrix}$$. Pivot rule: independent = number of pivots equals number of columns.",
-      "type": "text",
-      "correctAnswer": "pivots = 3 = columns",
-      "explanation": "Row reduction gives 3 pivots."
+    "id": 5,
+    "prompt": "Given matrix $$A=\\begin{bmatrix}1&0&-5\\\\-2&1&0\\\\1&2&5\\end{bmatrix}$$. Pivot rule: independent = number of pivots equals number of columns.",
+    "type": "multiple-choice",
+    "correctAnswer": "pivots = 3 = columns",
+    "explanation": "Row reduction gives 3 pivots."
     },
 
     {
-      "id": 6,
-      "prompt": "Rank-nullity formula: rank = total columns - nullity. Given 7x6 matrix with nullity 4.",
-      "type": "text",
-      "correctAnswer": "rank = 6 - 4",
-      "explanation": "Rank = 2."
+    "id": 6,
+    "prompt": "Rank-nullity formula: rank = total columns - nullity. Given 7x6 matrix with nullity 4.",
+    "type": "multiple-choice",
+    "correctAnswer": "rank = 6 - 4",
+    "explanation": "Rank = 2."
     },
 
     {
-      "id": 7,
-      "prompt": "Orthogonal complement rule: dim(W^perp) = n - dim(W). Given W subset R^5 with dim 2.",
-      "type": "text",
-      "correctAnswer": "dim(W⊥) = 5 - 2",
-      "explanation": "Dimension balance."
+    "id": 7,
+    "prompt": "Orthogonal complement rule: dim(W^perp) = n - dim(W). Given W subset R^5 with dim 2.",
+    "type": "multiple-choice",
+    "correctAnswer": "dim(W⊥) = 5 - 2",
+    "explanation": "Dimension balance."
     },
 
     {
-      "id": 8,
-      "prompt": "Dependence rule: number of vectors > dimension implies dependence. For 4 vectors in R^3.",
-      "type": "text",
-      "correctAnswer": "dependent = 4 > 3",
-      "explanation": "Too many vectors."
+    "id": 8,
+    "prompt": "Dependence rule: number of vectors > dimension implies dependence. For 4 vectors in R^3.",
+    "type": "multiple-choice",
+    "correctAnswer": "dependent = 4 > 3",
+    "explanation": "Too many vectors."
     },
 
     {
-      "id": 9,
-      "prompt": "Injective rule: injective if null(A) = 0.",
-      "type": "text",
-      "correctAnswer": "null(A) = 0",
-      "explanation": "Only trivial solution."
+    "id": 9,
+    "prompt": "Injective rule: injective if null(A) = 0.",
+    "type": "multiple-choice",
+    "correctAnswer": "null(A) = 0",
+    "explanation": "Only trivial solution."
     },
 
     {
-      "id": 10,
-      "prompt": "Diagonalization rule: diagonalizable if number of independent eigenvectors equals n.",
-      "type": "text",
-      "correctAnswer": "eigenvectors = n",
-      "explanation": "Need full eigenbasis."
+    "id": 10,
+    "prompt": "Diagonalization rule: diagonalizable if number of independent eigenvectors equals n.",
+    "type": "multiple-choice",
+    "correctAnswer": "eigenvectors = n",
+    "explanation": "Need full eigenbasis."
     },
 
     {
-      "id": 11,
-      "prompt": "Invertibility rule: invertible if pivots = n.",
-      "type": "text",
-      "correctAnswer": "pivots = n",
-      "explanation": "Full rank."
+    "id": 11,
+    "prompt": "Invertibility rule: invertible if pivots = n.",
+    "type": "multiple-choice",
+    "correctAnswer": "pivots = n",
+    "explanation": "Full rank."
     },
 
     {
-      "id": 12,
-      "prompt": "Diagonalization inverse formula: A^{-1} = P D^{-1} P^{-1}.",
-      "type": "text",
-      "correctAnswer": "A^{-1} = P D^{-1} P^{-1}",
-      "explanation": "Uses diagonal form."
+    "id": 12,
+    "prompt": "Diagonalization inverse formula: A^{-1} = P D^{-1} P^{-1}.",
+    "type": "multiple-choice",
+    "correctAnswer": "A^{-1} = P D^{-1} P^{-1}",
+    "explanation": "Uses diagonal form."
     },
 
     {
-      "id": 13,
-      "prompt": "Eigenvalue power rule: A^2 squares eigenvalues.",
-      "type": "text",
-      "correctAnswer": "A^2 = 1^2 and (-1)^2",
-      "explanation": "Squares eigenvalues."
+    "id": 13,
+    "prompt": "Eigenvalue power rule: A^2 squares eigenvalues.",
+    "type": "multiple-choice",
+    "correctAnswer": "A^2 = 1^2 and (-1)^2",
+    "explanation": "Squares eigenvalues."
     },
 
     {
-      "id": 14,
-      "prompt": "Determinant rule: det(A) = product of eigenvalues.",
-      "type": "text",
-      "correctAnswer": "det = lambda1 * lambda2 * lambda3",
-      "explanation": "Eigenvalue property."
+    "id": 14,
+    "prompt": "Determinant rule: det(A) = product of eigenvalues.",
+    "type": "multiple-choice",
+    "correctAnswer": "det = lambda1 * lambda2 * lambda3",
+    "explanation": "Eigenvalue property."
     },
 
     {
-      "id": 15,
-      "prompt": "Vector space rule: Ax = 0 defines a subspace.",
-      "type": "text",
-      "correctAnswer": "homogeneous = vector space",
-      "explanation": "Closed under operations."
+    "id": 15,
+    "prompt": "Vector space rule: Ax = 0 defines a subspace.",
+    "type": "multiple-choice",
+    "correctAnswer": "homogeneous = vector space",
+    "explanation": "Closed under operations."
     },
 
     {
-      "id": 16,
-      "prompt": "Rank-nullity: rank + nullity = n for 3x3 matrix with rank 2.",
-      "type": "text",
-      "correctAnswer": "nullity = 3 - 2",
-      "explanation": "Nullity = 1."
+    "id": 16,
+    "prompt": "Rank-nullity: rank + nullity = n for 3x3 matrix with rank 2.",
+    "type": "multiple-choice",
+    "correctAnswer": "nullity = 3 - 2",
+    "explanation": "Nullity = 1."
     },
 
     {
-      "id": 17,
-      "prompt": "Transpose null relation: dim(null(A^T)) = m - rank(A).",
-      "type": "text",
-      "correctAnswer": "dim = 3 - rank",
-      "explanation": "Row space relation."
+    "id": 17,
+    "prompt": "Transpose null relation: dim(null(A^T)) = m - rank(A).",
+    "type": "multiple-choice",
+    "correctAnswer": "dim = 3 - rank",
+    "explanation": "Row space relation."
     },
 
     {
-      "id": 18,
-      "prompt": "Repeated eigenvalues may fail diagonalization.",
-      "type": "text",
-      "correctAnswer": "repeated eigenvalues not sufficient",
-      "explanation": "Need enough eigenvectors."
+    "id": 18,
+    "prompt": "Repeated eigenvalues may fail diagonalization.",
+    "type": "multiple-choice",
+    "correctAnswer": "repeated eigenvalues not sufficient",
+    "explanation": "Need enough eigenvectors."
     },
 
     {
-      "id": 19,
-      "prompt": "Distinct eigenvalues guarantee independence.",
-      "type": "text",
-      "correctAnswer": "distinct eigenvalues give independent eigenvectors",
-      "explanation": "Always diagonalizable."
+    "id": 19,
+    "prompt": "Distinct eigenvalues guarantee independence.",
+    "type": "multiple-choice",
+    "correctAnswer": "distinct eigenvalues give independent eigenvectors",
+    "explanation": "Always diagonalizable."
     },
 
     {
-      "id": 20,
-      "prompt": "Rotation matrix eigenvalues: lambda = cos(theta) ± i sin(theta). Real only when?",
-      "type": "text",
-      "correctAnswer": "theta = 0 or pi",
-      "explanation": "Otherwise complex."
+    "id": 20,
+    "prompt": "Rotation matrix eigenvalues: lambda = cos(theta) ± i sin(theta). Real only when?",
+    "type": "multiple-choice",
+    "correctAnswer": "theta = 0 or pi",
+    "explanation": "Otherwise complex."
     },
 
     {
-      "id": 21,
-      "prompt": "Symmetric matrix definition.",
-      "type": "text",
-      "correctAnswer": "A = A^T",
-      "explanation": "Definition."
+    "id": 21,
+    "prompt": "Symmetric matrix definition.",
+    "type": "multiple-choice",
+    "correctAnswer": "A = A^T",
+    "explanation": "Definition."
     }
 
   ]
