@@ -1,0 +1,202 @@
+{
+  "id": "math314-final-inclass-practice",
+  "title": "Math 314: Final Exam In-Class Practice",
+  "description": "Practice exam covering eigenvalues, multiplicities, symmetric matrices, and orthogonal transformations. All LaTeX is KaTeX-compatible.",
+  "image": "assets/linear_algebra.png",
+  "questions": [
+    {
+      "id": 1,
+      "prompt": "Find all eigenvalues and compute their algebraic and geometric multiplicities for $A = \\begin{bmatrix} 2 & 1 & 0 & 0 \\\\ 0 & 2 & 0 & 0 \\\\ 0 & 0 & 3 & 1 \\\\ 0 & 0 & 0 & 3 \\end{bmatrix}$.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "$\\lambda=2$ (alg: 2, geo: 1), $\\lambda=3$ (alg: 2, geo: 1)",
+          "value": "a"
+        },
+        {
+          "label": "$\\lambda=2$ (alg: 2, geo: 2), $\\lambda=3$ (alg: 2, geo: 2)",
+          "value": "b"
+        },
+        {
+          "label": "$\\lambda=1, 2, 3, 4$ (alg: 1 each)",
+          "value": "c"
+        }
+      ],
+      "correctAnswer": "a",
+      "explanation": "The eigenvalues are the diagonal entries 2 and 3. For each, the geometric multiplicity is the number of Jordan blocks, which is 1."
+    },
+    {
+      "id": 2,
+      "prompt": "Give an example of a $2\\times 2$ matrix that is invertible but not diagonalizable.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "$\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}$",
+          "value": "a"
+        },
+        {
+          "label": "$\\begin{bmatrix} 1 & 0 \\\\ 0 & 1 \\end{bmatrix}$",
+          "value": "b"
+        },
+        {
+          "label": "$\\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$",
+          "value": "c"
+        }
+      ],
+      "correctAnswer": "a",
+      "explanation": "This matrix has $\\det=1$ (invertible) but only one eigenvector (not diagonalizable)."
+    },
+    {
+      "id": 3,
+      "prompt": "Give an example of a $2\\times 2$ matrix that is diagonalizable but not invertible.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "$\\begin{bmatrix} 1 & 0 \\\\ 0 & 0 \\end{bmatrix}$",
+          "value": "a"
+        },
+        {
+          "label": "$\\begin{bmatrix} 1 & 1 \\\\ 0 & 1 \\end{bmatrix}$",
+          "value": "b"
+        },
+        {
+          "label": "$\\begin{bmatrix} 0 & 1 \\\\ 0 & 0 \\end{bmatrix}$",
+          "value": "c"
+        }
+      ],
+      "correctAnswer": "a",
+      "explanation": "This is a diagonal matrix (diagonalizable) with determinant 0 (not invertible)."
+    },
+    {
+      "id": 4,
+      "prompt": "True or False: For every matrix $X$ and every vector $y$, there is always a solution $w$ to $Xw=y$.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "True",
+          "value": "t"
+        },
+        {
+          "label": "False \u2014 only if $y$ is in the column space of $X$",
+          "value": "f"
+        }
+      ],
+      "correctAnswer": "f",
+      "explanation": "The equation $Xw=y$ is consistent only if $y \\in \\text{Col}(X)$."
+    },
+    {
+      "id": 5,
+      "prompt": "True or False: There is a $4 \\times 32$ matrix $A$ such that $A^T A$ has characteristic polynomial $\\lambda^2(\\lambda+3)^{30}$.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "True",
+          "value": "t"
+        },
+        {
+          "label": "False \u2014 eigenvalues of $A^T A$ must be $\\ge 0$",
+          "value": "f"
+        }
+      ],
+      "correctAnswer": "f",
+      "explanation": "$A^T A$ is positive semi-definite; all its eigenvalues are $\\ge 0$. A factor of $(\\lambda+3)^{30}$ implies $\\lambda=-3$, which is impossible."
+    },
+    {
+      "id": 6,
+      "prompt": "True or False: There is a $3 \\times 3$ matrix with real entries that has no real eigenvalues.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "True",
+          "value": "t"
+        },
+        {
+          "label": "False \u2014 odd-degree real polynomials always have a real root",
+          "value": "f"
+        }
+      ],
+      "correctAnswer": "f",
+      "explanation": "Cubic polynomials with real coefficients must intersect the x-axis at least once."
+    },
+    {
+      "id": 7,
+      "prompt": "True or False: If $AA^T = I_n$, then the rows of $A$ form an orthonormal basis for $\\mathbb{R}^n$.",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "True",
+          "value": "t"
+        },
+        {
+          "label": "False",
+          "value": "f"
+        }
+      ],
+      "correctAnswer": "t",
+      "explanation": "$AA^T = I$ means that the dot product of row $i$ with row $j$ is $\\delta_{ij}$, which defines an orthonormal set."
+    },
+    {
+      "id": 8,
+      "prompt": "Suppose $A$ is $3 \\times 3$ and $A[4, -5, 6]^T = [8, -10, 12]^T$, $A[1, 0, 3]^T = [7, 0, 21]^T$, and $A[0, 1, 2]^T = [0, 2, 4]^T$. Is $A$ diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "Yes \u2014 it has 3 linearly independent eigenvectors",
+          "value": "y"
+        },
+        {
+          "label": "No",
+          "value": "n"
+        },
+        {
+          "label": "Not enough information",
+          "value": "i"
+        }
+      ],
+      "correctAnswer": "y",
+      "explanation": "The equations define three eigenvectors for eigenvalues 2 and 7. Since these three vectors are linearly independent, $A$ is diagonalizable."
+    },
+    {
+      "id": 9,
+      "prompt": "Let $A$ be a symmetric $3 \\times 3$ matrix with eigenvalues 0 and 3. If 0 is an eigenvalue, what is the determinant of $A$?",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "0",
+          "value": "0"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "9",
+          "value": "9"
+        }
+      ],
+      "correctAnswer": "0",
+      "explanation": "The determinant is the product of the eigenvalues."
+    },
+    {
+      "id": 10,
+      "prompt": "Let $A = \\begin{bmatrix} 1 & 1 & 0 \\\\ 0 & 2 & 1 \\\\ 0 & 0 & 3 \\end{bmatrix}$. Which is true about the diagonalizability of $A$?",
+      "type": "multiple-choice",
+      "choices": [
+        {
+          "label": "$A$ is diagonalizable because it has 3 distinct eigenvalues",
+          "value": "a"
+        },
+        {
+          "label": "$A$ is not diagonalizable because it is upper triangular",
+          "value": "b"
+        },
+        {
+          "label": "$A$ is only diagonalizable if it is symmetric",
+          "value": "c"
+        }
+      ],
+      "correctAnswer": "a",
+      "explanation": "A $3 \\times 3$ matrix with 3 distinct eigenvalues is always diagonalizable."
+    }
+  ]
+}
