@@ -20,6 +20,7 @@ import exampleChemistry from "./example-chemistry.json";
 import LinearAlgebraExam2Practice from "./Linear-Algebra-Exam-2-practice.json"
 import LinearAlgebra314FinalPractice1 from "./Linear-Algebra-314-final-practice-1.json"
 import LinearAlgebra314FinalPractice2 from "./Linear-Algebra-314-final-practice-2.json"
+import LinearAlgebraReciPractice from "./Linear-Algebra-reci-practice.json"
 
 // -- Add every imported module to this array --
 // The order here is the order they appear on the home screen.
@@ -29,6 +30,7 @@ export const allModules: Module[] = [
     LinearAlgebraExam2Practice as Module,
     LinearAlgebra314FinalPractice1 as Module,
     LinearAlgebra314FinalPractice2 as Module,
+    LinearAlgebraReciPractice as Module,
 
     // Add more modules here, e.g.:
     // myNewModule as Module,
