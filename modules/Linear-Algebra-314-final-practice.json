@@ -1,0 +1,149 @@
+{
+  "id": "math314-final-practice",
+  "title": "Math 314 Final Practice",
+  "description": "Linear algebra practice covering vector spaces, linear transformations, eigenvalues, and diagonalization.",
+  "image": "assets/linear_algebra.png",
+  "questions": [
+
+    {
+      "id": 1,
+      "prompt": "Which of the following statements about the set {u, v, w} is TRUE?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "They are orthogonal and form a basis for R^3", "value": "A" },
+        { "label": "They are dependent", "value": "B" },
+        { "label": "They do not span R^3", "value": "C" },
+        { "label": "They are not orthogonal", "value": "D" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "The vectors are mutually orthogonal and nonzero, so they are independent and form a basis for R^3."
+    },
+
+    {
+      "id": 2,
+      "prompt": "Given rref(A) has pivots in columns 1 and 2, what must be true about vectors v1, v2, v3, v4?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "All four vectors are independent", "value": "A" },
+        { "label": "v1 and v2 are independent; v3 and v4 depend on them", "value": "B" },
+        { "label": "Only v4 is independent", "value": "C" },
+        { "label": "None are independent", "value": "D" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Pivot columns correspond to independent vectors; non-pivot columns are linear combinations."
+    },
+
+    {
+      "id": 3,
+      "prompt": "If three vectors in R^4 are linearly independent, what is true about their span?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "They span R^4", "value": "A" },
+        { "label": "They span a 3D subspace of R^4", "value": "B" },
+        { "label": "They are dependent", "value": "C" },
+        { "label": "They span a line", "value": "D" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Three independent vectors in R^4 span a 3-dimensional subspace, not all of R^4."
+    },
+
+    {
+      "id": 4,
+      "prompt": "A 3x3 matrix has two eigenvalues and each eigenspace is 1-dimensional. Is it diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes, always", "value": "A" },
+        { "label": "No, because it lacks enough eigenvectors", "value": "B" },
+        { "label": "Yes, if eigenvalues are distinct", "value": "C" },
+        { "label": "Cannot be determined", "value": "D" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "A 3x3 matrix needs 3 independent eigenvectors; here there are only 2."
+    },
+
+    {
+      "id": 5,
+      "prompt": "If a 7x6 matrix has nullity 4, what is its rank?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "2", "value": "A" },
+        { "label": "3", "value": "B" },
+        { "label": "4", "value": "C" },
+        { "label": "6", "value": "D" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "Rank-nullity theorem: rank + nullity = number of columns (6). So rank = 2."
+    },
+
+    {
+      "id": 6,
+      "prompt": "If W is spanned by two independent vectors in R^5, what is dim(W^⊥)?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "1", "value": "A" },
+        { "label": "2", "value": "B" },
+        { "label": "3", "value": "C" },
+        { "label": "5", "value": "D" }
+      ],
+      "correctAnswer": "C",
+      "explanation": "dim(W^⊥) = 5 - dim(W) = 5 - 2 = 3."
+    },
+
+    {
+      "id": 7,
+      "prompt": "Why is a set of 4 vectors in R^3 always linearly dependent?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Too many vectors for the dimension", "value": "A" },
+        { "label": "They are orthogonal", "value": "B" },
+        { "label": "They span R^4", "value": "C" },
+        { "label": "They must be zero vectors", "value": "D" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "You cannot have more than 3 independent vectors in R^3."
+    },
+
+    {
+      "id": 8,
+      "prompt": "What is the geometric interpretation of a 2D subspace in R^3?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "A line", "value": "A" },
+        { "label": "A plane", "value": "B" },
+        { "label": "A point", "value": "C" },
+        { "label": "The entire space", "value": "D" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "A 2-dimensional subspace in R^3 is a plane through the origin."
+    },
+
+    {
+      "id": 9,
+      "prompt": "What does it mean for a linear transformation to be injective?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Every output has a preimage", "value": "A" },
+        { "label": "Kernel contains only zero", "value": "B" },
+        { "label": "Matrix is square", "value": "C" },
+        { "label": "Determinant is zero", "value": "D" }
+      ],
+      "correctAnswer": "B",
+      "explanation": "Injective means one-to-one, which occurs when the null space is trivial."
+    },
+
+    {
+      "id": 10,
+      "prompt": "When is a matrix diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "When it has n independent eigenvectors", "value": "A" },
+        { "label": "When determinant is zero", "value": "B" },
+        { "label": "When it is symmetric", "value": "C" },
+        { "label": "When it has repeated eigenvalues", "value": "D" }
+      ],
+      "correctAnswer": "A",
+      "explanation": "A matrix is diagonalizable if it has a basis of eigenvectors."
+    }
+
+  ]
+}

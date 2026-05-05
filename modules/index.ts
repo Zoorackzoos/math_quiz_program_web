@@ -17,12 +17,16 @@ import {Module} from "../src/types";
 // -- Import your module JSON files here --
 import exampleAlgebra from "./example-algebra.json";
 import exampleChemistry from "./example-chemistry.json";
+import LinearAlgebraExam2Practice from "./Linear-Algebra-Exam-2-practice.json"
+import LinearAlgebra314malpractice from "./Linear-Algebra-314-final-practice.json"
 
 // -- Add every imported module to this array --
 // The order here is the order they appear on the home screen.
 export const allModules: Module[] = [
     exampleAlgebra as Module,
     exampleChemistry as Module,
+    LinearAlgebraExam2Practice as Module,
+    LinearAlgebra314malpractice as Module,
 
     // Add more modules here, e.g.:
     // myNewModule as Module,
