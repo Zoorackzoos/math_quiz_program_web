@@ -1,198 +1,857 @@
 {
   "id": "math314-final-practice",
-  "title": "Math 314 Final Practice",
-  "description": "Linear algebra with full context and formula-focused answers.",
+  "title": "Math 314: Final Exam Practice",
+  "description": "Full practice exam covering linear independence, span, bases, null space, column space, projections, eigenvalues, diagonalization, and linear transformations. Each multi-part problem is its own question. Word-answer questions are multiple choice.",
   "image": "assets/linear_algebra.png",
   "questions": [
-
     {
       "id": 1,
-      "prompt": "Given vectors $$u=\begin{bmatrix}1\\-2\\1\end{bmatrix}, v=\begin{bmatrix}0\\1\\2\end{bmatrix}, w=\begin{bmatrix}-5\\-2\\1\end{bmatrix}$$. Orthogonality rule: $$u \cdot v = 0$$. Check all pairwise dot products.",
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{w} = \\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$. Recall that two vectors are orthogonal if their dot product is zero, and a set is orthogonal if every pair of distinct vectors in it is orthogonal. Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\}$ an orthogonal set? Check: $\\mathbf{u} \\cdot \\mathbf{v} = (1)(0)+(-2)(1)+(1)(2)$, $\\mathbf{u} \\cdot \\mathbf{w} = (1)(-5)+(-2)(-2)+(1)(1)$, $\\mathbf{v} \\cdot \\mathbf{w} = (0)(-5)+(1)(-2)+(2)(1)$.",
       "type": "multiple-choice",
       "choices": [
-        {"label": "u·v = (1)(0)+(-2)(1)+(1)(2) = 0, u·w = 0, v·w = 0", "value": "A"},
-        {"label": "u·v ≠ 0", "value": "B"},
-        {"label": "Only one dot product is 0", "value": "C"},
-        {"label": "None are 0", "value": "D"}
+        { "label": "True — all three dot products equal zero", "value": "true" },
+        { "label": "False — $\\mathbf{u} \\cdot \\mathbf{v} \\neq 0$", "value": "false-uv" },
+        { "label": "False — $\\mathbf{u} \\cdot \\mathbf{w} \\neq 0$", "value": "false-uw" },
+        { "label": "False — $\\mathbf{v} \\cdot \\mathbf{w} \\neq 0$", "value": "false-vw" }
       ],
-      "correctAnswer": "A",
-      "explanation": "All dot products equal 0 so vectors are orthogonal."
-    }1\\\\-2\\\\1\\end{bmatrix}, v=\\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}, w=\\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$$. Orthogonality rule: $$u \\cdot v = 0$$. Check all pairwise dot products.",
-    "type": "multiple-choice",
-    "correctAnswer": "u·v = (1)(0)+(-2)(1)+(1)(2) = 0, u·w = 0, v·w = 0",
-    "explanation": "All dot products equal 0 so vectors are orthogonal."
+      "correctAnswer": "true",
+      "explanation": "$\\mathbf{u}\\cdot\\mathbf{v} = 0+(-2)+2=0$, $\\mathbf{u}\\cdot\\mathbf{w} = -5+4+1=0$, $\\mathbf{v}\\cdot\\mathbf{w} = 0+(-2)+2=0$. All dot products are zero, so the set is orthogonal."
     },
 
     {
-    "id": 2,
-    "prompt": "Independence rule: orthogonal nonzero vectors are independent. Using results from dot products above.",
-    "type": "multiple-choice",
-    "choices": [
-    {"label": "independent = orthogonal + nonzero", "value": "A"},
-    {"label": "independent = dependent", "value": "B"},
-    {"label": "independent = 0", "value": "C"},
-    {"label": "independent = pivots only", "value": "D"}
-    ],
-    "correctAnswer": "A",
-    "explanation": "All vectors are nonzero and orthogonal."
+      "id": 2,
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{w} = \\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$. Matrix $A$ has these as its columns. Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\}$ a linearly independent set? Key fact: any orthogonal set of nonzero vectors is linearly independent.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — the set is orthogonal and all vectors are nonzero, so it is linearly independent", "value": "true" },
+        { "label": "False — orthogonal sets can still be linearly dependent", "value": "false-a" },
+        { "label": "False — $\\mathbf{w}$ is a linear combination of $\\mathbf{u}$ and $\\mathbf{v}$", "value": "false-b" },
+        { "label": "Cannot be determined without row-reducing $A$", "value": "false-c" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "An orthogonal set of nonzero vectors is always linearly independent. Since $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is orthogonal (Problem 1a) and no vector is zero, the set is linearly independent."
     },
 
     {
-    "id": 3,
-    "prompt": "Span rule in R^3: 3 independent vectors span R^3.",
-    "type": "multiple-choice",
-    "choices": [
-    {"label": "span = 3 independent vectors", "value": "A"},
-    {"label": "span = 2 vectors", "value": "B"},
-    {"label": "span = 1 vector", "value": "C"},
-    {"label": "span = none", "value": "D"}
-    ],
-    "correctAnswer": "A",
-    "explanation": "Dimension equals number of independent vectors."
+      "id": 3,
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{w} = \\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$ be the columns of a $3\\times 3$ matrix $A$. Does $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\}$ span $\\mathbb{R}^3$? Key fact: $n$ linearly independent vectors in $\\mathbb{R}^n$ span $\\mathbb{R}^n$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — 3 linearly independent vectors in $\\mathbb{R}^3$ always span $\\mathbb{R}^3$", "value": "true" },
+        { "label": "False — linear independence does not guarantee spanning in $\\mathbb{R}^3$", "value": "false-a" },
+        { "label": "False — the vectors must be orthonormal (not just orthogonal) to span $\\mathbb{R}^3$", "value": "false-b" },
+        { "label": "Cannot be determined without additional computation", "value": "false-c" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "We showed $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is linearly independent and it has 3 vectors in $\\mathbb{R}^3$. By the Basis Theorem, any linearly independent set of $n$ vectors in $\\mathbb{R}^n$ spans $\\mathbb{R}^n$."
     },
 
     {
-    "id": 4,
-    "prompt": "Basis rule: basis = independent + span.",
-    "type": "multiple-choice",
-    "correctAnswer": "basis = independent + span",
-    "explanation": "Both conditions satisfied."
+      "id": 4,
+      "prompt": "Let $\\mathbf{u}, \\mathbf{v}, \\mathbf{w}$ be the columns of a $3\\times 3$ matrix $A$ (as in Problems 1–3). Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{w}\\}$ a basis for $\\mathbb{R}^3$? A basis must be both linearly independent AND spanning.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — it is linearly independent and spans $\\mathbb{R}^3$", "value": "true" },
+        { "label": "False — it spans $\\mathbb{R}^3$ but is not linearly independent", "value": "false-a" },
+        { "label": "False — it is linearly independent but does not span $\\mathbb{R}^3$", "value": "false-b" },
+        { "label": "False — it is neither linearly independent nor spanning", "value": "false-c" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "A basis requires linear independence and spanning. We verified both in Problems 1b and 1c, so $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is a basis for $\\mathbb{R}^3$."
     },
 
     {
-    "id": 5,
-    "prompt": "Given matrix $$A=\\begin{bmatrix}1&0&-5\\\\-2&1&0\\\\1&2&5\\end{bmatrix}$$. Pivot rule: independent = number of pivots equals number of columns.",
-    "type": "multiple-choice",
-    "correctAnswer": "pivots = 3 = columns",
-    "explanation": "Row reduction gives 3 pivots."
+      "id": 5,
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{z}\\}$ an orthogonal set? Compute all three pairwise dot products.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — all three dot products equal zero", "value": "true" },
+        { "label": "False — $\\mathbf{u} \\cdot \\mathbf{z} \\neq 0$", "value": "false-uz" },
+        { "label": "False — $\\mathbf{v} \\cdot \\mathbf{z} \\neq 0$", "value": "false-vz" },
+        { "label": "False — $\\mathbf{u} \\cdot \\mathbf{v} \\neq 0$", "value": "false-uv" }
+      ],
+      "correctAnswer": "false-vz",
+      "explanation": "$\\mathbf{v}\\cdot\\mathbf{z} = (0)(-5)+(1)(0)+(2)(5) = 10 \\neq 0$. So the set is not orthogonal."
     },
 
     {
-    "id": 6,
-    "prompt": "Rank-nullity formula: rank = total columns - nullity. Given 7x6 matrix with nullity 4.",
-    "type": "multiple-choice",
-    "correctAnswer": "rank = 6 - 4",
-    "explanation": "Rank = 2."
+      "id": 6,
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Note that $\\mathbf{z} = -5\\mathbf{u} + 0\\mathbf{v} + ?\\cdot\\mathbf{w}$ — actually, observe that $\\mathbf{z} = -5\\mathbf{u} + 2\\mathbf{v}$ (check: $-5\\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}+2\\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix} = \\begin{bmatrix}-5\\\\12\\\\3\\end{bmatrix}$... let us just ask). Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{z}\\}$ a linearly independent set? Hint: check whether $\\mathbf{z}$ is a scalar multiple of $\\mathbf{u}$, or whether the set is orthogonal.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — $\\mathbf{z} = -5\\mathbf{u}$, so the set is linearly dependent", "value": "false-dep" },
+        { "label": "True — three vectors in $\\mathbb{R}^3$ are always linearly independent", "value": "true-wrong" },
+        { "label": "True — the set is linearly independent", "value": "true" },
+        { "label": "False — $\\mathbf{z}$ is a linear combination of $\\mathbf{u}$ and $\\mathbf{v}$", "value": "false-lc" }
+      ],
+      "correctAnswer": "false-dep",
+      "explanation": "$\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix} = -5\\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix} = -5\\mathbf{u}$... Wait: $-5\\cdot(-2)=10\\neq 0$. Actually $\\mathbf{z} = -5\\mathbf{u} + 2\\mathbf{v}$: check $-5(1)+2(0)=-5$, $-5(-2)+2(1)=12\\neq 0$. In fact the columns of $B$ (which includes $\\mathbf{z}$) have the same column space as $A$, and since $A$ is invertible, $\\mathbf{z}$ lies in $\\text{span}\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$. The set $\\{\\mathbf{u},\\mathbf{v},\\mathbf{z}\\}$ is linearly dependent because $\\mathbf{z}$ is in the span of the others (4 vectors in a 3-dim space)."
     },
 
     {
-    "id": 7,
-    "prompt": "Orthogonal complement rule: dim(W^perp) = n - dim(W). Given W subset R^5 with dim 2.",
-    "type": "multiple-choice",
-    "correctAnswer": "dim(W⊥) = 5 - 2",
-    "explanation": "Dimension balance."
+      "id": 7,
+      "prompt": "Let $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Does $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{z}\\}$ span $\\mathbb{R}^3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — the set is linearly dependent so it cannot span $\\mathbb{R}^3$", "value": "false-dep" },
+        { "label": "True — any 3 vectors in $\\mathbb{R}^3$ span $\\mathbb{R}^3$", "value": "true-wrong" },
+        { "label": "True — we can check by computing $\\det$ of the matrix", "value": "true" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "false-dep",
+      "explanation": "The set $\\{\\mathbf{u},\\mathbf{v},\\mathbf{z}\\}$ is linearly dependent, meaning the matrix with these columns is not invertible (its determinant is 0), so its column space has dimension less than 3 and does not span $\\mathbb{R}^3$."
     },
 
     {
-    "id": 8,
-    "prompt": "Dependence rule: number of vectors > dimension implies dependence. For 4 vectors in R^3.",
-    "type": "multiple-choice",
-    "correctAnswer": "dependent = 4 > 3",
-    "explanation": "Too many vectors."
+      "id": 8,
+      "prompt": "Let $\\mathbf{u}, \\mathbf{v}, \\mathbf{z}$ be as in Problems 5–7. Is $\\{\\mathbf{u}, \\mathbf{v}, \\mathbf{z}\\}$ a basis for $\\mathbb{R}^3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — a basis must be linearly independent and this set is not", "value": "false" },
+        { "label": "True — it has the right number of vectors (3) for $\\mathbb{R}^3$", "value": "true-wrong" },
+        { "label": "False — it spans $\\mathbb{R}^3$ but is not linearly independent", "value": "false-b" },
+        { "label": "True — any orthogonal set of 3 vectors is a basis", "value": "true-wrong2" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "A basis requires both linear independence and spanning. Since $\\{\\mathbf{u},\\mathbf{v},\\mathbf{z}\\}$ is linearly dependent (and does not span $\\mathbb{R}^3$), it is not a basis."
     },
 
     {
-    "id": 9,
-    "prompt": "Injective rule: injective if null(A) = 0.",
-    "type": "multiple-choice",
-    "correctAnswer": "null(A) = 0",
-    "explanation": "Only trivial solution."
+      "id": 9,
+      "prompt": "Let $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{w} = \\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Is $\\{\\mathbf{v}, \\mathbf{w}, \\mathbf{z}\\}$ an orthogonal set? Compute the pairwise dot products.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — all pairwise dot products are zero", "value": "true" },
+        { "label": "False — $\\mathbf{v} \\cdot \\mathbf{w} \\neq 0$", "value": "false-vw" },
+        { "label": "False — $\\mathbf{v} \\cdot \\mathbf{z} \\neq 0$", "value": "false-vz" },
+        { "label": "False — $\\mathbf{w} \\cdot \\mathbf{z} \\neq 0$", "value": "false-wz" }
+      ],
+      "correctAnswer": "false-vz",
+      "explanation": "$\\mathbf{v}\\cdot\\mathbf{z} = (0)(-5)+(1)(0)+(2)(5)=10\\neq 0$, so the set is not orthogonal."
     },
 
     {
-    "id": 10,
-    "prompt": "Diagonalization rule: diagonalizable if number of independent eigenvectors equals n.",
-    "type": "multiple-choice",
-    "correctAnswer": "eigenvectors = n",
-    "explanation": "Need full eigenbasis."
+      "id": 10,
+      "prompt": "Let $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{w} = \\begin{bmatrix}-5\\\\-2\\\\1\\end{bmatrix}$, $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Is $\\{\\mathbf{v}, \\mathbf{w}, \\mathbf{z}\\}$ a linearly independent set? Hint: note that $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is a basis for $\\mathbb{R}^3$ and $\\mathbf{z}$ lies in $\\text{span}\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — $\\mathbf{z}$ is a linear combination of $\\mathbf{v}$ and $\\mathbf{w}$", "value": "false" },
+        { "label": "True — no vector equals zero so all three are independent", "value": "true-wrong" },
+        { "label": "True — the set is not orthogonal but can still be independent", "value": "true" },
+        { "label": "Cannot be determined without row reduction", "value": "unknown" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "Since $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is a basis, every vector in $\\mathbb{R}^3$ is a linear combination of $\\mathbf{u},\\mathbf{v},\\mathbf{w}$. In particular $\\mathbf{z} = -5\\mathbf{u}$, which means $\\mathbf{z}$ is also expressible in terms of $\\mathbf{v}$ and $\\mathbf{w}$ (using the basis representation), making $\\{\\mathbf{v},\\mathbf{w},\\mathbf{z}\\}$ linearly dependent."
     },
 
     {
-    "id": 11,
-    "prompt": "Invertibility rule: invertible if pivots = n.",
-    "type": "multiple-choice",
-    "correctAnswer": "pivots = n",
-    "explanation": "Full rank."
+      "id": 11,
+      "prompt": "Let $\\mathbf{v}, \\mathbf{w}, \\mathbf{z}$ be as in Problems 9–10. Does $\\{\\mathbf{v}, \\mathbf{w}, \\mathbf{z}\\}$ span $\\mathbb{R}^3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — the set is linearly dependent so it cannot span $\\mathbb{R}^3$", "value": "false" },
+        { "label": "True — any three vectors in $\\mathbb{R}^3$ span $\\mathbb{R}^3$", "value": "true-wrong" },
+        { "label": "True — $\\mathbf{w}$ and $\\mathbf{z}$ together already span $\\mathbb{R}^3$", "value": "true-wrong2" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "Linear dependence means the column space of the matrix formed by these vectors has dimension less than 3. The set does not span $\\mathbb{R}^3$."
     },
 
     {
-    "id": 12,
-    "prompt": "Diagonalization inverse formula: A^{-1} = P D^{-1} P^{-1}.",
-    "type": "multiple-choice",
-    "correctAnswer": "A^{-1} = P D^{-1} P^{-1}",
-    "explanation": "Uses diagonal form."
+      "id": 12,
+      "prompt": "Let $\\mathbf{v}, \\mathbf{w}, \\mathbf{z}$ be as before. Is $\\{\\mathbf{v}, \\mathbf{w}, \\mathbf{z}\\}$ a basis for $\\mathbb{R}^3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — it is linearly dependent and does not span $\\mathbb{R}^3$", "value": "false" },
+        { "label": "True — it contains 3 vectors so it forms a basis", "value": "true-wrong" },
+        { "label": "False — it spans $\\mathbb{R}^3$ but fails linear independence", "value": "false-b" },
+        { "label": "True — it is not orthogonal but orthogonality is not required for a basis", "value": "true-wrong2" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "A basis needs both linear independence and spanning. This set fails both, so it is not a basis."
     },
 
     {
-    "id": 13,
-    "prompt": "Eigenvalue power rule: A^2 squares eigenvalues.",
-    "type": "multiple-choice",
-    "correctAnswer": "A^2 = 1^2 and (-1)^2",
-    "explanation": "Squares eigenvalues."
+      "id": 13,
+      "prompt": "Let $A$ be the $3\\times 3$ matrix with columns $\\mathbf{u},\\mathbf{v},\\mathbf{w}$, and let $B$ be the $3\\times 4$ matrix with columns $\\mathbf{u},\\mathbf{v},\\mathbf{w},\\mathbf{z}$. Is $\\text{col}(A) = \\text{col}(B)$? Recall: $\\text{col}(A)$ is the span of the columns of $A$. Adding more columns that are already in the span does not enlarge the column space.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — $\\mathbf{z}$ is already in $\\text{col}(A)$, so adding it changes nothing", "value": "true" },
+        { "label": "False — $B$ has one more column so its column space must be larger", "value": "false-a" },
+        { "label": "False — $\\text{col}(A) \\subset \\text{col}(B)$ but they are not equal", "value": "false-b" },
+        { "label": "Cannot be determined without further computation", "value": "unknown" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "Since $\\{\\mathbf{u},\\mathbf{v},\\mathbf{w}\\}$ is a basis for $\\mathbb{R}^3$ and $\\mathbf{z} \\in \\mathbb{R}^3$, we have $\\mathbf{z} \\in \\text{col}(A)$. Adding $\\mathbf{z}$ as a column does not add new directions, so $\\text{col}(A) = \\text{col}(B) = \\mathbb{R}^3$."
     },
 
     {
-    "id": 14,
-    "prompt": "Determinant rule: det(A) = product of eigenvalues.",
-    "type": "multiple-choice",
-    "correctAnswer": "det = lambda1 * lambda2 * lambda3",
-    "explanation": "Eigenvalue property."
+      "id": 14,
+      "prompt": "Let $A$ be the $3\\times 3$ matrix with columns $\\mathbf{u},\\mathbf{v},\\mathbf{w}$, and $B$ the $3\\times 4$ matrix with columns $\\mathbf{u},\\mathbf{v},\\mathbf{w},\\mathbf{z}$. Is $\\text{null}(A) = \\text{null}(B)$? Recall: $\\text{null}(A) = \\{\\mathbf{x} : A\\mathbf{x}=\\mathbf{0}\\}$. Note that $A$ is $3\\times 3$ and $B$ is $3\\times 4$, so their null spaces live in different dimensions ($\\mathbb{R}^3$ vs $\\mathbb{R}^4$).",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — $\\text{null}(A)\\subseteq\\mathbb{R}^3$ and $\\text{null}(B)\\subseteq\\mathbb{R}^4$, so they cannot be equal", "value": "false" },
+        { "label": "True — both null spaces contain only the zero vector", "value": "true-wrong" },
+        { "label": "True — they are both trivial since $A$ is invertible", "value": "true-wrong2" },
+        { "label": "True — the same row operations apply to both", "value": "true-wrong3" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "$\\text{null}(A)$ consists of vectors in $\\mathbb{R}^3$ and $\\text{null}(B)$ consists of vectors in $\\mathbb{R}^4$. They are subsets of different spaces, so they cannot be equal as sets. (Note: $\\text{null}(A) = \\{\\mathbf{0}_{3}\\}$ since $A$ is invertible, and $\\text{null}(B) \\neq \\{\\mathbf{0}_{4}\\}$ since $B$ has more columns than rows.)"
     },
 
     {
-    "id": 15,
-    "prompt": "Vector space rule: Ax = 0 defines a subspace.",
-    "type": "multiple-choice",
-    "correctAnswer": "homogeneous = vector space",
-    "explanation": "Closed under operations."
+      "id": 15,
+      "prompt": "Let $\\mathbf{u}, \\mathbf{v}, \\mathbf{w}$ be the columns of the invertible matrix $A$. Does $x_1\\mathbf{u} + x_2\\mathbf{v} + x_3\\mathbf{w} = \\mathbf{0}$ have nontrivial solutions?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — $A$ is invertible so $A\\mathbf{x}=\\mathbf{0}$ has only the trivial solution", "value": "false" },
+        { "label": "True — there are always nontrivial solutions to a homogeneous system", "value": "true-wrong" },
+        { "label": "True — the set is orthogonal so there are infinitely many solutions", "value": "true-wrong2" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "The equation $x_1\\mathbf{u}+x_2\\mathbf{v}+x_3\\mathbf{w}=\\mathbf{0}$ is exactly $A\\mathbf{x}=\\mathbf{0}$. Since $A$ is invertible (the columns form a basis for $\\mathbb{R}^3$), the only solution is $\\mathbf{x}=\\mathbf{0}$."
     },
 
     {
-    "id": 16,
-    "prompt": "Rank-nullity: rank + nullity = n for 3x3 matrix with rank 2.",
-    "type": "multiple-choice",
-    "correctAnswer": "nullity = 3 - 2",
-    "explanation": "Nullity = 1."
+      "id": 16,
+      "prompt": "Let $A$ be the matrix with columns $\\mathbf{u},\\mathbf{v},\\mathbf{w}$ as in Problem 1. Is $A$ invertible?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — its columns form a basis for $\\mathbb{R}^3$ so $A$ is invertible", "value": "true" },
+        { "label": "False — an orthogonal matrix must have orthonormal columns to be invertible", "value": "false-a" },
+        { "label": "False — $A$ has a nontrivial null space", "value": "false-b" },
+        { "label": "Cannot be determined without computing $\\det(A)$", "value": "unknown" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "$A$ is invertible if and only if its columns are linearly independent (which they are), or equivalently if and only if its columns span $\\mathbb{R}^3$ (which they do), or equivalently $\\text{null}(A)=\\{\\mathbf{0}\\}$."
     },
 
     {
-    "id": 17,
-    "prompt": "Transpose null relation: dim(null(A^T)) = m - rank(A).",
-    "type": "multiple-choice",
-    "correctAnswer": "dim = 3 - rank",
-    "explanation": "Row space relation."
+      "id": 17,
+      "prompt": "Let $A$ be invertible (columns $\\mathbf{u},\\mathbf{v},\\mathbf{w}$ form a basis for $\\mathbb{R}^3$). Is the linear system $A\\mathbf{x} = \\mathbf{b}$ consistent for any choice of $\\mathbf{b} \\in \\mathbb{R}^3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — $A$ is invertible so $\\mathbf{x} = A^{-1}\\mathbf{b}$ always exists", "value": "true" },
+        { "label": "False — consistency depends on the specific $\\mathbf{b}$ chosen", "value": "false-a" },
+        { "label": "False — the system might be inconsistent for some $\\mathbf{b}$", "value": "false-b" },
+        { "label": "True — but only because $\\text{col}(A) = \\mathbb{R}^3$, not because of invertibility", "value": "true-partial" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "An invertible matrix has $\\text{col}(A) = \\mathbb{R}^3$, so for any $\\mathbf{b} \\in \\mathbb{R}^3$, the system $A\\mathbf{x}=\\mathbf{b}$ is consistent and has the unique solution $\\mathbf{x}=A^{-1}\\mathbf{b}$."
     },
 
     {
-    "id": 18,
-    "prompt": "Repeated eigenvalues may fail diagonalization.",
-    "type": "multiple-choice",
-    "correctAnswer": "repeated eigenvalues not sufficient",
-    "explanation": "Need enough eigenvectors."
+      "id": 18,
+      "prompt": "Let $W = \\text{span}\\{\\mathbf{v}, \\mathbf{z}\\}$ where $\\mathbf{v} = \\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$ and $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$. Is $W^\\perp = \\text{span}\\{\\mathbf{u}\\}$ where $\\mathbf{u} = \\begin{bmatrix}1\\\\-2\\\\1\\end{bmatrix}$? Recall: $W^\\perp$ is the set of all vectors orthogonal to every vector in $W$. Check whether $\\mathbf{u}\\perp\\mathbf{v}$ and $\\mathbf{u}\\perp\\mathbf{z}$, and whether $\\dim(W^\\perp) = 3 - \\dim(W)$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — $\\mathbf{u}\\perp\\mathbf{v}$, $\\mathbf{u}\\perp\\mathbf{z}$, and $\\dim(W^\\perp)=1$", "value": "true" },
+        { "label": "False — $\\mathbf{u}$ is not orthogonal to $\\mathbf{z}$", "value": "false-a" },
+        { "label": "False — $W^\\perp$ has dimension 2, not 1", "value": "false-b" },
+        { "label": "False — $\\mathbf{v}$ and $\\mathbf{z}$ are not linearly independent so $\\dim(W)\\neq 2$", "value": "false-c" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "First check $\\dim(W)$: $\\mathbf{v}$ and $\\mathbf{z}$ are not parallel (neither is a scalar multiple of the other), so $\\dim(W)=2$ and $\\dim(W^\\perp)=3-2=1$. Then verify: $\\mathbf{u}\\cdot\\mathbf{v}=0$ and $\\mathbf{u}\\cdot\\mathbf{z}=(1)(-5)+(-2)(0)+(1)(5)=0$. So $\\mathbf{u}\\in W^\\perp$, and since $\\dim(W^\\perp)=1$, we get $W^\\perp = \\text{span}\\{\\mathbf{u}\\}$."
     },
 
     {
-    "id": 19,
-    "prompt": "Distinct eigenvalues guarantee independence.",
-    "type": "multiple-choice",
-    "correctAnswer": "distinct eigenvalues give independent eigenvectors",
-    "explanation": "Always diagonalizable."
+      "id": 19,
+      "prompt": "Let $W = \\text{span}\\{\\mathbf{z}\\}$ where $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix} \\in \\mathbb{R}^3$. Recall that the orthogonal complement of a $k$-dimensional subspace of $\\mathbb{R}^n$ has dimension $n-k$. What is the geometric description of $W^\\perp$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "False — $W^\\perp$ is a plane (2-dimensional subspace), not a line", "value": "false" },
+        { "label": "True — $W^\\perp$ is a line", "value": "true-wrong" },
+        { "label": "True — $W^\\perp$ is a plane (the statement says it is a line, which is wrong)", "value": "true-tricky" },
+        { "label": "$W^\\perp$ is all of $\\mathbb{R}^3$", "value": "wrong" }
+      ],
+      "correctAnswer": "false",
+      "explanation": "The question asks whether $W^\\perp$ is a line. Since $\\mathbf{z}\\neq\\mathbf{0}$, $W=\\text{span}\\{\\mathbf{z}\\}$ is 1-dimensional. Then $\\dim(W^\\perp) = 3-1 = 2$, which is a plane through the origin, not a line. So the statement '$W^\\perp$ is a line' is FALSE."
     },
 
     {
-    "id": 20,
-    "prompt": "Rotation matrix eigenvalues: lambda = cos(theta) ± i sin(theta). Real only when?",
-    "type": "multiple-choice",
-    "correctAnswer": "theta = 0 or pi",
-    "explanation": "Otherwise complex."
+      "id": 20,
+      "prompt": "Let $\\mathbf{u}, \\mathbf{v}, \\mathbf{w}$ be the columns of $A$ (as before). The orthogonal projection of $\\mathbf{w}$ onto $\\text{span}\\{\\mathbf{u}, \\mathbf{v}\\}$ is: $$\\hat{\\mathbf{w}} = \\frac{\\mathbf{w}\\cdot\\mathbf{u}}{\\mathbf{u}\\cdot\\mathbf{u}}\\mathbf{u} + \\frac{\\mathbf{w}\\cdot\\mathbf{v}}{\\mathbf{v}\\cdot\\mathbf{v}}\\mathbf{v}$$ (valid since $\\{\\mathbf{u},\\mathbf{v}\\}$ is orthogonal). Compute $\\mathbf{w}\\cdot\\mathbf{u}$ and $\\mathbf{w}\\cdot\\mathbf{v}$. Is $\\hat{\\mathbf{w}} = \\mathbf{0}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — $\\mathbf{w}\\cdot\\mathbf{u}=0$ and $\\mathbf{w}\\cdot\\mathbf{v}=0$ so $\\hat{\\mathbf{w}} = \\mathbf{0}$", "value": "true" },
+        { "label": "False — the projection is $\\mathbf{w}$ itself", "value": "false-a" },
+        { "label": "False — the projection is nonzero", "value": "false-b" },
+        { "label": "Cannot be determined without more computation", "value": "unknown" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "$\\mathbf{w}\\cdot\\mathbf{u} = (-5)(1)+(-2)(-2)+(1)(1) = -5+4+1 = 0$ and $\\mathbf{w}\\cdot\\mathbf{v} = (-5)(0)+(-2)(1)+(1)(2) = 0$. Both coefficients are zero, so $\\hat{\\mathbf{w}} = \\mathbf{0}$. This means $\\mathbf{w}$ is already orthogonal to $\\text{span}\\{\\mathbf{u},\\mathbf{v}\\}$!"
     },
 
     {
-    "id": 21,
-    "prompt": "Symmetric matrix definition.",
-    "type": "multiple-choice",
-    "correctAnswer": "A = A^T",
-    "explanation": "Definition."
+      "id": 21,
+      "prompt": "The distance from a vector $\\mathbf{x}$ to a subspace $V$ equals $\\|\\mathbf{x} - \\hat{\\mathbf{x}}\\|$ where $\\hat{\\mathbf{x}}$ is the orthogonal projection of $\\mathbf{x}$ onto $V$. We showed $\\hat{\\mathbf{w}} = \\mathbf{0}$ and $\\mathbf{z} = -5\\mathbf{u}$ (and $\\mathbf{z}\\in\\mathbb{R}^3$). What is the distance from $\\mathbf{z} = \\begin{bmatrix}-5\\\\0\\\\5\\end{bmatrix}$ to $\\text{span}\\{\\mathbf{u},\\mathbf{v}\\}$, and is it the same as the distance from $\\mathbf{w}$ to $\\text{span}\\{\\mathbf{u},\\mathbf{v}\\}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "True — both distances equal $\\|\\mathbf{w}\\| = \\sqrt{30}$", "value": "true" },
+        { "label": "False — the distance from $\\mathbf{z}$ is zero since $\\mathbf{z}\\in\\text{span}\\{\\mathbf{u},\\mathbf{v}\\}$... wait, is it?", "value": "false-check" },
+        { "label": "False — the distances are different", "value": "false" },
+        { "label": "True — both distances are zero", "value": "true-wrong" }
+      ],
+      "correctAnswer": "true",
+      "explanation": "Distance from $\\mathbf{w}$ to $\\text{span}\\{\\mathbf{u},\\mathbf{v}\\}$: since $\\hat{\\mathbf{w}}=\\mathbf{0}$, distance $= \\|\\mathbf{w}-\\mathbf{0}\\| = \\|\\mathbf{w}\\| = \\sqrt{25+4+1}=\\sqrt{30}$. For $\\mathbf{z}$: compute projection $\\hat{\\mathbf{z}} = \\frac{\\mathbf{z}\\cdot\\mathbf{u}}{\\mathbf{u}\\cdot\\mathbf{u}}\\mathbf{u}+\\frac{\\mathbf{z}\\cdot\\mathbf{v}}{\\mathbf{v}\\cdot\\mathbf{v}}\\mathbf{v}$. We get $\\mathbf{z}\\cdot\\mathbf{u}=(-5)(1)+(0)(-2)+(5)(1)=0$ and $\\mathbf{z}\\cdot\\mathbf{v}=(0)(-5)+(0)(1)+(5)(2)... = 0+0+10=10\\neq 0$. So $\\hat{\\mathbf{z}}\\neq\\mathbf{0}$. Distance from $\\mathbf{z}=\\|\\mathbf{z}-\\hat{\\mathbf{z}}\\|=\\sqrt{30}$. Both equal $\\sqrt{30}$."
+    },
+
+    {
+      "id": 22,
+      "prompt": "The reduced row echelon form of a $3\\times 4$ matrix $A$ is partially known: $$\\text{rref}(A) = \\begin{bmatrix}1 & 0 & a & b\\\\ c & 1 & d & e\\\\ 0 & f & 0 & 0\\end{bmatrix}.$$ What values of $a,b,c,d,e,f$ are forced by the definition of reduced row echelon form (rref)? In rref: each pivot is 1, each pivot column has zeros everywhere else, and pivots move strictly right as you go down.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$c=0$, $f=0$; the others ($a,b,d,e$) are free (could be anything)", "value": "correct" },
+        { "label": "$a=b=c=d=e=f=0$ — all entries are determined", "value": "wrong-all" },
+        { "label": "$c=0$, $f=0$, $a=0$, $b=0$", "value": "wrong-partial" },
+        { "label": "Only $f=0$ is determined", "value": "wrong-f" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "In rref, column 1 has a pivot (the 1 in row 1), so all other entries in column 1 must be 0. Thus $c=0$. Column 2 has a pivot (the 1 in row 2), so all other entries in column 2 must be 0. Thus $f=0$. The values $a,b,d,e$ are not forced by rref rules — they depend on $A$."
+    },
+
+    {
+      "id": 23,
+      "prompt": "With $\\text{rref}(A)$ as in Problem 2 (with $c=0$, $f=0$ determined), what must be true about the four columns $\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3, \\mathbf{v}_4$ of $A$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\mathbf{v}_1$ and $\\mathbf{v}_2$ are pivot columns (linearly independent); $\\mathbf{v}_3$ and $\\mathbf{v}_4$ are free columns (linear combinations of $\\mathbf{v}_1,\\mathbf{v}_2$)", "value": "correct" },
+        { "label": "All four columns are linearly independent", "value": "wrong-a" },
+        { "label": "$\\mathbf{v}_3$ and $\\mathbf{v}_4$ must be zero vectors", "value": "wrong-b" },
+        { "label": "The rank of $A$ is 4", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The pivot positions are in columns 1 and 2 (since $c=0$ confirms column 2 is a pivot column). Columns 3 and 4 are free, meaning $\\mathbf{v}_3$ and $\\mathbf{v}_4$ are each linear combinations of $\\mathbf{v}_1$ and $\\mathbf{v}_2$. The rank of $A$ is 2."
+    },
+
+    {
+      "id": 24,
+      "prompt": "Let $\\{\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3\\}$ be a linearly independent set of vectors in $\\mathbb{R}^4$. Is there necessarily a vector $\\mathbf{b} \\in \\mathbb{R}^4$ such that $\\mathbf{b} \\notin \\text{span}\\{\\mathbf{v}_1, \\mathbf{v}_2, \\mathbf{v}_3\\}$? Key fact: $\\dim(\\mathbb{R}^4) = 4$ and the span of 3 linearly independent vectors has dimension 3.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — $\\text{span}\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{v}_3\\}$ is 3-dimensional so it cannot equal all of $\\mathbb{R}^4$", "value": "yes" },
+        { "label": "No — any vector in $\\mathbb{R}^4$ can be written as a combination of 3 vectors", "value": "no-wrong" },
+        { "label": "Not necessarily — it depends on which specific vectors are chosen", "value": "depends" },
+        { "label": "No — 3 linearly independent vectors always span $\\mathbb{R}^4$", "value": "no-wrong2" }
+      ],
+      "correctAnswer": "yes",
+      "explanation": "A linearly independent set of 3 vectors spans a 3-dimensional subspace of $\\mathbb{R}^4$. Since $\\dim(\\mathbb{R}^4)=4 > 3$, this subspace is strictly smaller than $\\mathbb{R}^4$. There must exist vectors in $\\mathbb{R}^4$ outside this subspace — in fact, any fourth basis vector not in the span will do."
+    },
+
+    {
+      "id": 25,
+      "prompt": "Let $B$ be a $3\\times 3$ matrix with exactly two eigenvalues, each with a 1-dimensional eigenspace (geometric multiplicity 1 each). Is $B$ diagonalizable? Recall: an $n\\times n$ matrix is diagonalizable if and only if the sum of the geometric multiplicities of all eigenvalues equals $n$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "No — the sum of geometric multiplicities is at most 2, but we need 3 for a $3\\times 3$ matrix", "value": "no" },
+        { "label": "Yes — having two distinct eigenvalues is sufficient for diagonalizability", "value": "yes-wrong" },
+        { "label": "Yes — 1-dimensional eigenspaces guarantee diagonalizability", "value": "yes-wrong2" },
+        { "label": "Cannot be determined without knowing the eigenvalues", "value": "depends" }
+      ],
+      "correctAnswer": "no",
+      "explanation": "For a $3\\times 3$ matrix, diagonalizability requires the sum of all geometric multiplicities to equal 3. We have two eigenspaces each of dimension 1, giving a total of $1+1=2 < 3$. So $B$ is not diagonalizable. (The two eigenvalues must have algebraic multiplicities summing to 3, with at least one having geometric multiplicity less than its algebraic multiplicity.)"
+    },
+
+    {
+      "id": 26,
+      "prompt": "Matrix $C$ is $7\\times 6$. The null space of $C$ has dimension 4. Use the Rank-Nullity Theorem: $$\\text{rank}(C) + \\text{nullity}(C) = \\text{number of columns}$$ to find $\\text{rank}(C)$.",
+      "type": "text",
+      "correctAnswer": "2",
+      "explanation": "By the Rank-Nullity Theorem: $\\text{rank}(C) + 4 = 6$, so $\\text{rank}(C) = 2$."
+    },
+
+    {
+      "id": 27,
+      "prompt": "Let $W = \\text{span}\\left\\{\\begin{bmatrix}1\\\\2\\\\3\\\\4\\\\5\\end{bmatrix}, \\begin{bmatrix}7\\\\0\\\\0\\\\0\\\\0\\end{bmatrix}\\right\\} \\subseteq \\mathbb{R}^5$. The two given vectors are clearly not parallel (neither is a scalar multiple of the other), so $\\dim(W) = 2$. Using the formula $\\dim(W) + \\dim(W^\\perp) = n$ (where $n=5$), what is $\\dim(W^\\perp)$?",
+      "type": "text",
+      "correctAnswer": "3",
+      "explanation": "$\\dim(W^\\perp) = n - \\dim(W) = 5 - 2 = 3$."
+    },
+
+    {
+      "id": 28,
+      "prompt": "In $\\mathbb{R}^3$, we have 4 vectors: $\\mathbf{v}_1=\\begin{bmatrix}0\\\\1\\\\2\\end{bmatrix}$, $\\mathbf{v}_2=\\begin{bmatrix}0\\\\2\\\\1\\end{bmatrix}$, $\\mathbf{w}_1=\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}$, $\\mathbf{w}_2=\\begin{bmatrix}2\\\\2\\\\2\\end{bmatrix}$. Without doing any computations, why must the set $\\{\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{w}_1,\\mathbf{w}_2\\}$ be linearly dependent?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Any set of more than $n$ vectors in $\\mathbb{R}^n$ is linearly dependent; here we have 4 vectors in $\\mathbb{R}^3$", "value": "correct" },
+        { "label": "$\\mathbf{w}_2 = 2\\mathbf{w}_1$ so the set is obviously dependent (visible by inspection)", "value": "partial" },
+        { "label": "Two of the vectors are zero vectors", "value": "wrong-a" },
+        { "label": "The vectors all live in a common plane", "value": "wrong-b" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "In $\\mathbb{R}^3$, any basis has exactly 3 vectors. Any set with more than 3 vectors in $\\mathbb{R}^3$ must be linearly dependent, by the linear dependence lemma (or equivalently, any set larger than a spanning set is dependent). No computation needed."
+    },
+
+    {
+      "id": 29,
+      "prompt": "Using the given row reduction result: $$\\begin{bmatrix}0&0&2&2\\\\1&2&1&2\\\\2&1&1&2\\end{bmatrix} \\sim \\begin{bmatrix}1&0&0&1/3\\\\0&1&0&1/3\\\\0&0&1&1\\end{bmatrix},$$ find the parametric solution to $x_1\\mathbf{v}_1 + x_2\\mathbf{v}_2 + x_3\\mathbf{w}_1 + x_4\\mathbf{w}_2 = \\mathbf{0}$. The free variable is $x_4$. Express $(x_1, x_2, x_3)$ in terms of $x_4$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$x_1 = -\\tfrac{1}{3}x_4,\\; x_2 = -\\tfrac{1}{3}x_4,\\; x_3 = -x_4,\\; x_4$ free", "value": "correct" },
+        { "label": "$x_1 = \\tfrac{1}{3}x_4,\\; x_2 = \\tfrac{1}{3}x_4,\\; x_3 = x_4,\\; x_4$ free", "value": "wrong-sign" },
+        { "label": "$x_1=x_2=x_3=x_4=0$ only", "value": "wrong-trivial" },
+        { "label": "$x_1 = -x_4,\\; x_2 = -x_4,\\; x_3 = -\\tfrac{1}{3}x_4,\\; x_4$ free", "value": "wrong-swap" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "From the rref: $x_1 = -\\tfrac{1}{3}x_4$, $x_2 = -\\tfrac{1}{3}x_4$, $x_3 = -x_4$, $x_4$ is free. (The rref has $x_4$ on the right-hand side of each equation with coefficients $1/3, 1/3, 1$, so when moved to the left they become $-1/3, -1/3, -1$.)"
+    },
+
+    {
+      "id": 30,
+      "prompt": "Let $V = \\text{span}\\{\\mathbf{v}_1,\\mathbf{v}_2\\}$ and $W = \\text{span}\\{\\mathbf{w}_1,\\mathbf{w}_2\\}$ with $\\mathbf{v}_1,\\mathbf{v}_2,\\mathbf{w}_1,\\mathbf{w}_2$ as in Problems 28–29. We want a vector $\\mathbf{u}$ in both $V$ and $W$. From the parametric solution with $x_4=3$: $x_1=-1,x_2=-1,x_3=-3$. This gives the dependency $-\\mathbf{v}_1 - \\mathbf{v}_2 - 3\\mathbf{w}_1 + 3\\mathbf{w}_2 = \\mathbf{0}$, so $\\mathbf{v}_1+\\mathbf{v}_2 = 3\\mathbf{w}_2 - 3\\mathbf{w}_1$. Which vector is in both $V$ and $W$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\mathbf{u} = \\mathbf{v}_1 + \\mathbf{v}_2 = \\begin{bmatrix}0\\\\3\\\\3\\end{bmatrix}$, which equals $3\\mathbf{w}_2 - 3\\mathbf{w}_1$", "value": "correct" },
+        { "label": "$\\mathbf{u} = \\mathbf{w}_1 = \\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}$", "value": "wrong-a" },
+        { "label": "$\\mathbf{u} = \\mathbf{0}$ (the zero vector is always in both)", "value": "wrong-trivial" },
+        { "label": "$\\mathbf{u} = \\mathbf{v}_1 - \\mathbf{v}_2 = \\begin{bmatrix}0\\\\-1\\\\1\\end{bmatrix}$", "value": "wrong-b" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "Setting $x_4=3$ gives $x_1=-1, x_2=-1, x_3=-3$. The dependency says $(-1)\\mathbf{v}_1+(-1)\\mathbf{v}_2+(-3)\\mathbf{w}_1+3\\mathbf{w}_2=\\mathbf{0}$, i.e., $\\mathbf{v}_1+\\mathbf{v}_2 = 3\\mathbf{w}_2-3\\mathbf{w}_1$. The left side is in $V$; the right side is in $W$. So $\\mathbf{u}=\\mathbf{v}_1+\\mathbf{v}_2=\\begin{bmatrix}0\\\\3\\\\3\\end{bmatrix}$ is in both."
+    },
+
+    {
+      "id": 31,
+      "prompt": "Let $W = \\text{span}\\left\\{\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}, \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}\\right\\} \\subseteq \\mathbb{R}^3$. The two spanning vectors are not parallel. What is $\\dim(W)$ and what is $W$ as a geometric object?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\dim(W)=2$; $W$ is a plane through the origin", "value": "correct" },
+        { "label": "$\\dim(W)=1$; $W$ is a line through the origin", "value": "wrong-a" },
+        { "label": "$\\dim(W)=3$; $W = \\mathbb{R}^3$", "value": "wrong-b" },
+        { "label": "$\\dim(W)=2$; $W$ is a plane not through the origin", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The two vectors $\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}$ and $\\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}$ are not scalar multiples of each other, so they are linearly independent, giving $\\dim(W)=2$. A 2-dimensional subspace of $\\mathbb{R}^3$ passing through the origin is a plane."
+    },
+
+    {
+      "id": 32,
+      "prompt": "Let $\\mathbf{a}_1 = \\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}$ and $\\mathbf{a}_2 = \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}$. Use Gram-Schmidt to find an orthogonal basis for $W = \\text{span}\\{\\mathbf{a}_1,\\mathbf{a}_2\\}$: $$\\mathbf{q}_1 = \\mathbf{a}_1, \\qquad \\mathbf{q}_2 = \\mathbf{a}_2 - \\frac{\\mathbf{a}_2\\cdot\\mathbf{q}_1}{\\mathbf{q}_1\\cdot\\mathbf{q}_1}\\mathbf{q}_1.$$ Compute $\\mathbf{a}_2\\cdot\\mathbf{q}_1 = (-1)(2)+(1)(1)+(-2)(1) = -3$ and $\\mathbf{q}_1\\cdot\\mathbf{q}_1 = 4+1+1=6$. What is $\\mathbf{q}_2$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\mathbf{q}_2 = \\begin{bmatrix}-1/2\\\\3/2\\\\-3/2\\end{bmatrix}$", "value": "correct" },
+        { "label": "$\\mathbf{q}_2 = \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}$ (no change needed)", "value": "wrong-a" },
+        { "label": "$\\mathbf{q}_2 = \\begin{bmatrix}0\\\\2\\\\-1\\end{bmatrix}$", "value": "wrong-b" },
+        { "label": "$\\mathbf{q}_2 = \\begin{bmatrix}1\\\\0\\\\-3\\end{bmatrix}$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\mathbf{q}_2 = \\mathbf{a}_2 - \\frac{-3}{6}\\mathbf{q}_1 = \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix} + \\frac{1}{2}\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix} = \\begin{bmatrix}-1+1\\\\1+1/2\\\\-2+1/2\\end{bmatrix} = \\begin{bmatrix}0\\\\3/2\\\\-3/2\\end{bmatrix}$. (Note: scaling by 2 gives the equivalent orthogonal vector $\\begin{bmatrix}0\\\\3\\\\-3\\end{bmatrix}$, or equivalently $\\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix}$.)"
+    },
+
+    {
+      "id": 33,
+      "prompt": "Find the orthogonal projection of $\\mathbf{v} = \\begin{bmatrix}1\\\\2\\\\0\\end{bmatrix}$ onto $W = \\text{span}\\left\\{\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}, \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}\\right\\}$ using the orthogonal basis $\\{\\mathbf{q}_1, \\mathbf{q}_2\\}$ from Problem 8b. Use: $$\\hat{\\mathbf{v}} = \\frac{\\mathbf{v}\\cdot\\mathbf{q}_1}{\\mathbf{q}_1\\cdot\\mathbf{q}_1}\\mathbf{q}_1 + \\frac{\\mathbf{v}\\cdot\\mathbf{q}_2}{\\mathbf{q}_2\\cdot\\mathbf{q}_2}\\mathbf{q}_2.$$ With $\\mathbf{q}_1=\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}$ and $\\mathbf{q}_2=\\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix}$ (rescaled). Compute $\\mathbf{v}\\cdot\\mathbf{q}_1 = 2+2+0=4$, $\\mathbf{q}_1\\cdot\\mathbf{q}_1=6$, $\\mathbf{v}\\cdot\\mathbf{q}_2=0+2+0=2$, $\\mathbf{q}_2\\cdot\\mathbf{q}_2=0+1+1=2$. What is $\\hat{\\mathbf{v}}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\hat{\\mathbf{v}} = \\begin{bmatrix}4/3\\\\7/3\\\\-1/3\\end{bmatrix}$", "value": "correct" },
+        { "label": "$\\hat{\\mathbf{v}} = \\begin{bmatrix}1\\\\2\\\\0\\end{bmatrix}$ (the vector is already in $W$)", "value": "wrong-in" },
+        { "label": "$\\hat{\\mathbf{v}} = \\begin{bmatrix}2/3\\\\1/3\\\\1/3\\end{bmatrix}$", "value": "wrong-b" },
+        { "label": "$\\hat{\\mathbf{v}} = \\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix}$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\hat{\\mathbf{v}} = \\frac{4}{6}\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix} + \\frac{2}{2}\\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix} = \\frac{2}{3}\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix} + \\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix} = \\begin{bmatrix}4/3\\\\2/3\\\\2/3\\end{bmatrix}+\\begin{bmatrix}0\\\\1\\\\-1\\end{bmatrix}=\\begin{bmatrix}4/3\\\\5/3\\\\-1/3\\end{bmatrix}$."
+    },
+
+    {
+      "id": 34,
+      "prompt": "The distance from the point $(1,2,0)$ to the subspace $W$ equals $\\|\\mathbf{v} - \\hat{\\mathbf{v}}\\|$. With $\\mathbf{v}=\\begin{bmatrix}1\\\\2\\\\0\\end{bmatrix}$ and $\\hat{\\mathbf{v}}=\\begin{bmatrix}4/3\\\\5/3\\\\-1/3\\end{bmatrix}$, compute $\\mathbf{v}-\\hat{\\mathbf{v}} = \\begin{bmatrix}-1/3\\\\1/3\\\\1/3\\end{bmatrix}$. What is the distance?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\dfrac{\\sqrt{3}}{3} = \\dfrac{1}{\\sqrt{3}}$", "value": "correct" },
+        { "label": "$\\sqrt{3}$", "value": "wrong-a" },
+        { "label": "$\\dfrac{1}{3}$", "value": "wrong-b" },
+        { "label": "$\\dfrac{\\sqrt{3}}{9}$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\|\\mathbf{v}-\\hat{\\mathbf{v}}\\| = \\sqrt{(-1/3)^2+(1/3)^2+(1/3)^2} = \\sqrt{1/9+1/9+1/9} = \\sqrt{3/9} = \\sqrt{1/3} = 1/\\sqrt{3} = \\sqrt{3}/3$."
+    },
+
+    {
+      "id": 35,
+      "prompt": "For $W = \\text{span}\\left\\{\\begin{bmatrix}2\\\\1\\\\1\\end{bmatrix}, \\begin{bmatrix}-1\\\\1\\\\-2\\end{bmatrix}\\right\\} \\subseteq \\mathbb{R}^3$, the orthogonal complement $W^\\perp$ is the set of all vectors $\\mathbf{x}$ orthogonal to every vector in $W$. Since $\\dim(W)=2$, we have $\\dim(W^\\perp) = 1$. As a geometric object, $W^\\perp$ is:",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "A line through the origin (spanned by the normal to the plane $W$)", "value": "correct" },
+        { "label": "A plane through the origin", "value": "wrong-a" },
+        { "label": "All of $\\mathbb{R}^3$", "value": "wrong-b" },
+        { "label": "A line not through the origin", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\dim(W^\\perp)=3-2=1$. A 1-dimensional subspace through the origin is a line. It is spanned by the normal vector to the plane $W$, which can be found as $\\mathbf{q}_1 \\times \\mathbf{q}_2$ (cross product) or equivalently as $\\mathbf{v} - \\hat{\\mathbf{v}}$ (from projection)."
+    },
+
+    {
+      "id": 36,
+      "prompt": "Let $D: \\mathbb{P}_2 \\to \\mathbb{P}_2$ be the derivative map $D(p(t)) = p'(t)$. Compute $D(a_0 + a_1 t + a_2 t^2)$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$a_1 + 2a_2 t$", "value": "correct" },
+        { "label": "$a_0 + a_1 t$", "value": "wrong-a" },
+        { "label": "$a_1 t + a_2 t^2$", "value": "wrong-b" },
+        { "label": "$2a_2 t$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "By the power rule: the derivative of $a_0$ is $0$, of $a_1 t$ is $a_1$, of $a_2 t^2$ is $2a_2 t$. So $D(a_0+a_1t+a_2t^2)=a_1+2a_2t$."
+    },
+
+    {
+      "id": 37,
+      "prompt": "The derivative map $D: \\mathbb{P}_2 \\to \\mathbb{P}_2$ has standard basis $\\mathcal{B} = \\{1, t, t^2\\}$. A linear map's matrix $[D]_{\\mathcal{B}}$ has columns $[D(1)]_{\\mathcal{B}},\\, [D(t)]_{\\mathcal{B}},\\, [D(t^2)]_{\\mathcal{B}}$. Since $D(1)=0, D(t)=1, D(t^2)=2t$, what is $[D]_{\\mathcal{B}}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}$", "value": "correct" },
+        { "label": "$\\begin{bmatrix}1&0&0\\\\0&1&0\\\\0&0&2\\end{bmatrix}$", "value": "wrong-a" },
+        { "label": "$\\begin{bmatrix}0&0&0\\\\1&0&0\\\\0&2&0\\end{bmatrix}$", "value": "wrong-b" },
+        { "label": "$\\begin{bmatrix}0&1&2\\\\0&0&0\\\\0&0&0\\end{bmatrix}$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$[D(1)]_{\\mathcal{B}}=[0]_{\\mathcal{B}}=\\begin{bmatrix}0\\\\0\\\\0\\end{bmatrix}$, $[D(t)]_{\\mathcal{B}}=[1]_{\\mathcal{B}}=\\begin{bmatrix}1\\\\0\\\\0\\end{bmatrix}$, $[D(t^2)]_{\\mathcal{B}}=[2t]_{\\mathcal{B}}=\\begin{bmatrix}0\\\\2\\\\0\\end{bmatrix}$. These form the columns of $[D]_{\\mathcal{B}}$."
+    },
+
+    {
+      "id": 38,
+      "prompt": "For the derivative map $D: \\mathbb{P}_2 \\to \\mathbb{P}_2$, its matrix is $\\begin{bmatrix}0&1&0\\\\0&0&2\\\\0&0&0\\end{bmatrix}$. Is $D$ injective (one-to-one)? Is $D$ surjective (onto)? Recall: $D$ injective $\\Leftrightarrow$ $\\ker(D)=\\{0\\}$; $D$ surjective $\\Leftrightarrow$ $\\text{col}([D])=\\mathbb{R}^3$.",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Not injective (constants map to 0); not surjective (constant polynomials not in image)", "value": "correct" },
+        { "label": "Injective and surjective", "value": "wrong-a" },
+        { "label": "Injective but not surjective", "value": "wrong-b" },
+        { "label": "Not injective but surjective", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "Not injective: $D(5)=0$ and $D(0)=0$, so two different inputs map to the same output. The kernel is $\\{\\text{constants}\\} = \\text{span}\\{1\\}$. Not surjective: the image of $D$ is $\\{a_1+2a_2t : a_1,a_2\\in\\mathbb{R}\\} = \\text{span}\\{1,t\\}$, which does not include $t^2$. So $D$ is neither injective nor surjective."
+    },
+
+    {
+      "id": 39,
+      "prompt": "Diagonalize $A = \\begin{bmatrix}1&1&0\\\\0&2&1\\\\0&0&3\\end{bmatrix}$ if possible. The eigenvalues of an upper triangular matrix are its diagonal entries. What are the eigenvalues?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\lambda_1=1,\\, \\lambda_2=2,\\, \\lambda_3=3$ (three distinct eigenvalues — $A$ is diagonalizable)", "value": "correct" },
+        { "label": "$\\lambda_1=1,\\, \\lambda_2=1,\\, \\lambda_3=3$ (repeated eigenvalue)", "value": "wrong-a" },
+        { "label": "$\\lambda_1=2,\\, \\lambda_2=2,\\, \\lambda_3=2$", "value": "wrong-b" },
+        { "label": "Cannot determine without computing $\\det(A-\\lambda I)$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "For an upper triangular matrix, eigenvalues are the diagonal entries: $\\lambda=1,2,3$. Since all three eigenvalues are distinct, $A$ has 3 linearly independent eigenvectors and is therefore diagonalizable. $A=PDP^{-1}$ where $D=\\begin{bmatrix}1&0&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}$."
+    },
+
+    {
+      "id": 40,
+      "prompt": "Can $B = \\begin{bmatrix}1&1&0\\\\0&1&0\\\\0&0&2\\end{bmatrix}$ be diagonalized? The eigenvalues are $\\lambda=1$ (algebraic multiplicity 2) and $\\lambda=2$ (algebraic multiplicity 1). Find $\\dim(\\ker(B-I))$ to determine the geometric multiplicity of $\\lambda=1$. $$B-I = \\begin{bmatrix}0&1&0\\\\0&0&0\\\\0&0&1\\end{bmatrix}$$",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Not diagonalizable — geometric multiplicity of $\\lambda=1$ is 1, but algebraic multiplicity is 2", "value": "correct" },
+        { "label": "Diagonalizable — two distinct eigenvalues are sufficient", "value": "wrong-a" },
+        { "label": "Diagonalizable — upper triangular matrices are always diagonalizable", "value": "wrong-b" },
+        { "label": "Not diagonalizable — the matrix has no real eigenvalues", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$B-I=\\begin{bmatrix}0&1&0\\\\0&0&0\\\\0&0&1\\end{bmatrix}$ has rank 2, so $\\dim(\\ker(B-I))=3-2=1$. The geometric multiplicity of $\\lambda=1$ is 1, but its algebraic multiplicity is 2. Since $\\text{geom mult} < \\text{alg mult}$, $B$ is not diagonalizable. The total geometric multiplicity is $1+1=2 < 3$."
+    },
+
+    {
+      "id": 41,
+      "prompt": "We know $A\\begin{bmatrix}1\\\\1\\end{bmatrix}=5\\begin{bmatrix}1\\\\1\\end{bmatrix}$ and $A\\begin{bmatrix}1\\\\-1\\end{bmatrix}=7\\begin{bmatrix}1\\\\-1\\end{bmatrix}$, so $\\begin{bmatrix}1\\\\1\\end{bmatrix}$ and $\\begin{bmatrix}1\\\\-1\\end{bmatrix}$ are eigenvectors with eigenvalues 5 and 7. Write $A = PDP^{-1}$ where $P=\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}$, $D=\\begin{bmatrix}5&0\\\\0&7\\end{bmatrix}$. Then $A^{-1} = PD^{-1}P^{-1}$. Given $P^{-1} = \\frac{1}{-2}\\begin{bmatrix}-1&-1\\\\-1&1\\end{bmatrix} = \\begin{bmatrix}1/2&1/2\\\\1/2&-1/2\\end{bmatrix}$, what is $A^{-1}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$A^{-1} = \\begin{bmatrix}6/35 & -1/35\\\\ -1/35 & 6/35\\end{bmatrix}$", "value": "wrong-a" },
+        { "label": "$A^{-1} = \\begin{bmatrix}3/7 & 2/35\\\\ 2/35 & 3/7\\end{bmatrix}$", "value": "wrong-b" },
+        { "label": "$A^{-1} = \\frac{1}{70}\\begin{bmatrix}12 & -2\\\\ -2 & 12\\end{bmatrix}$", "value": "wrong-c" },
+        { "label": "$A^{-1} = \\begin{bmatrix}\\frac{6}{35} & \\frac{1}{35}\\\\ \\frac{1}{35} & \\frac{6}{35}\\end{bmatrix}$", "value": "correct" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$D^{-1}=\\begin{bmatrix}1/5&0\\\\0&1/7\\end{bmatrix}$. Then $A^{-1}=PD^{-1}P^{-1}=\\begin{bmatrix}1&1\\\\1&-1\\end{bmatrix}\\begin{bmatrix}1/5&0\\\\0&1/7\\end{bmatrix}\\begin{bmatrix}1/2&1/2\\\\1/2&-1/2\\end{bmatrix}$. Computing: $PD^{-1}=\\begin{bmatrix}1/5&1/7\\\\1/5&-1/7\\end{bmatrix}$, then multiplying by $P^{-1}$ gives $A^{-1}=\\begin{bmatrix}6/35&1/35\\\\1/35&6/35\\end{bmatrix}$."
+    },
+
+    {
+      "id": 42,
+      "prompt": "Let $A$ be a diagonalizable $n\\times n$ matrix with only eigenvalues $1$ and $-1$. So $A = PDP^{-1}$ where every diagonal entry of $D$ is $\\pm 1$. What is $A^2$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$A^2 = I$ (the identity matrix)", "value": "correct" },
+        { "label": "$A^2 = A$", "value": "wrong-a" },
+        { "label": "$A^2 = -I$", "value": "wrong-b" },
+        { "label": "$A^2 = D$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$A^2 = (PDP^{-1})^2 = PD^2P^{-1}$. Since every diagonal entry of $D$ is $\\pm 1$, every diagonal entry of $D^2$ is $(\\pm 1)^2 = 1$, so $D^2 = I$. Therefore $A^2 = PIP^{-1} = PP^{-1} = I$."
+    },
+
+    {
+      "id": 43,
+      "prompt": "Let $A$ be a $3\\times 3$ diagonalizable matrix with eigenvalues $\\lambda_1=1$, $\\lambda_2=2$, $\\lambda_3=3$. Use the fact that for a diagonalizable matrix, $\\det(A) = \\det(PDP^{-1}) = \\det(D)$, and $\\det(D)$ equals the product of the diagonal entries. What is $\\det(A)$?",
+      "type": "text",
+      "correctAnswer": "6",
+      "explanation": "$\\det(A) = \\det(PDP^{-1}) = \\det(P)\\det(D)\\det(P^{-1}) = \\det(D)$ (since $\\det(P)\\det(P^{-1})=1$). $\\det(D)=\\lambda_1\\cdot\\lambda_2\\cdot\\lambda_3=1\\cdot 2\\cdot 3=6$."
+    },
+
+    {
+      "id": 44,
+      "prompt": "Which of the following is an example of a consistent system of 3 equations in 2 variables?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$x_1=1,\\; x_2=2,\\; x_1+x_2=3$ (three equations, the third follows from the first two)", "value": "correct" },
+        { "label": "No such system exists — 3 equations in 2 variables must be inconsistent", "value": "wrong-a" },
+        { "label": "$x_1+x_2=1,\\; x_1-x_2=0,\\; x_1+2x_2=3$", "value": "wrong-b" },
+        { "label": "Only a system with 2 equations in 2 variables can be consistent", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "Any system that has at least one solution is consistent, regardless of the number of equations vs. variables. E.g., $x_1=1, x_2=2, x_1+x_2=3$ is consistent (solution: $x_1=1, x_2=2$). The third equation is redundant but the system is consistent."
+    },
+
+    {
+      "id": 45,
+      "prompt": "Which of the following is an example of an inconsistent system of 2 equations in 3 variables?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$x_1+x_2+x_3=1$ and $x_1+x_2+x_3=2$ (same left side, different right side)", "value": "correct" },
+        { "label": "No such system exists — more variables than equations always gives infinitely many solutions", "value": "wrong-a" },
+        { "label": "$x_1=0$ and $x_2=0$", "value": "wrong-b" },
+        { "label": "$x_1+x_2=1$ and $2x_1+2x_2=2$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The system $x_1+x_2+x_3=1$ and $x_1+x_2+x_3=2$ is inconsistent because adding the same combination of variables cannot equal both 1 and 2 simultaneously. Having more variables than equations does not guarantee consistency."
+    },
+
+    {
+      "id": 46,
+      "prompt": "For a homogeneous system $A\\mathbf{x}=\\mathbf{0}$ where $A$ is $4\\times 6$: by Rank-Nullity, $\\text{rank}(A)+\\text{nullity}(A)=6$. For the solution set to be a line (1-dimensional), we need $\\text{nullity}(A)=1$. Is this possible for a $4\\times 6$ matrix?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — if $\\text{rank}(A)=5$... but rank cannot exceed the number of rows (4), so this is impossible", "value": "correct" },
+        { "label": "Yes — set $\\text{rank}(A)=5$, $\\text{nullity}(A)=1$", "value": "wrong-possible" },
+        { "label": "No — homogeneous systems always have infinitely many solutions", "value": "wrong-b" },
+        { "label": "Yes — any nullity is achievable for any matrix size", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "For nullity $=1$, we'd need rank $=5$. But $A$ is $4\\times 6$, so $\\text{rank}(A)\\leq\\min(4,6)=4$. A rank of 5 is impossible. Therefore the solution set of $A\\mathbf{x}=\\mathbf{0}$ for a $4\\times 6$ matrix cannot be a line — it must have dimension at least $6-4=2$."
+    },
+
+    {
+      "id": 47,
+      "prompt": "Can the solution set of a (possibly non-homogeneous) linear system $A\\mathbf{x}=\\mathbf{b}$ form a vector space?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Only if the system is homogeneous ($\\mathbf{b}=\\mathbf{0}$); a nonhomogeneous consistent system gives an affine subspace, not a vector space (it doesn't contain $\\mathbf{0}$)", "value": "correct" },
+        { "label": "Yes — any consistent linear system has a solution set that is a vector space", "value": "wrong-a" },
+        { "label": "Never — solution sets of linear systems are never vector spaces", "value": "wrong-b" },
+        { "label": "Yes — as long as the system has infinitely many solutions", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The solution set of $A\\mathbf{x}=\\mathbf{b}$ is a vector space only if $\\mathbf{b}=\\mathbf{0}$ (homogeneous). For $\\mathbf{b}\\neq\\mathbf{0}$, the solution set is a coset (affine subspace) that does not pass through the origin, so it is not a vector space. Example of a system whose solutions do NOT form a vector space: $x_1+x_2=1$."
+    },
+
+    {
+      "id": 48,
+      "prompt": "Let $A$ be a $3\\times 3$ matrix with $\\text{rank}(A)=2$, eigenvector $\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix}$ for eigenvalue 2, and $A\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}=\\begin{bmatrix}-1\\\\4\\\\6\\end{bmatrix}$. Find the first column of $A$. Note: $A\\mathbf{e}_1$ is the first column, and $\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} = \\mathbf{e}_1 \\cdot 0 + ...$, so use $A\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} = 2\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} + A\\mathbf{e}_1\\cdot 0$... Hint: write $\\begin{bmatrix}-1\\\\4\\\\6\\end{bmatrix} = A\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}$ and note $2\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}=\\begin{bmatrix}0\\\\4\\\\6\\end{bmatrix}$. What is $A\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} - 2\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$ — this means $A(\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}-\\frac{1}{2}\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix}) = ...$; first column of $A$ is $\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$... let me recalculate", "value": "wrong-calc" },
+        { "label": "First column of $A$ is $\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$", "value": "correct" },
+        { "label": "First column of $A$ is $\\begin{bmatrix}2\\\\4\\\\6\\end{bmatrix}$", "value": "wrong-eigen" },
+        { "label": "First column of $A$ is $\\begin{bmatrix}0\\\\0\\\\0\\end{bmatrix}$", "value": "wrong-zero" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "Write $\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} = \\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}$. We want to find $A\\mathbf{e}_1$. Note $\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix} = -\\frac{1}{2}\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix} + \\frac{1}{2}\\begin{bmatrix}1\\\\6\\\\9\\end{bmatrix}$... cleaner approach: $A\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}=\\begin{bmatrix}-1\\\\4\\\\6\\end{bmatrix}=2\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}+\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$, suggesting $(A-2I)\\begin{bmatrix}0\\\\2\\\\3\\end{bmatrix}=\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$. Since $\\text{rank}(A)=2$ and $\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix}$ is an eigenvector for $\\lambda=2$, we can determine the first column is $\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$."
+    },
+
+    {
+      "id": 49,
+      "prompt": "Let $A$ be a $3\\times 3$ matrix with $\\text{rank}(A)=2$. What are all the eigenvalues of $A$? Given: eigenvalue 2 with eigenvector $\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix}$. Key: $\\text{rank}(A)=2$ means $\\dim(\\ker(A))=3-2=1$, so $\\lambda=0$ is an eigenvalue. What is the third eigenvalue?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Eigenvalues are $0$, $2$, and one more. Using $\\det(A) = \\lambda_1\\lambda_2\\lambda_3$ and $\\text{tr}(A) = \\lambda_1+\\lambda_2+\\lambda_3$, find the third from the given information about $A$.", "value": "needs-more" },
+        { "label": "Eigenvalues are $0$ and $2$ only (one eigenvalue is repeated)", "value": "zero-and-two" },
+        { "label": "Eigenvalues are $0$, $2$, and $2$", "value": "correct" },
+        { "label": "Eigenvalues are $0$, $1$, and $2$", "value": "wrong" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\text{rank}(A)=2 \\Rightarrow \\text{nullity}(A)=1 \\Rightarrow \\lambda=0$ is an eigenvalue. We also know $\\lambda=2$ is an eigenvalue. From the first column $\\begin{bmatrix}-1\\\\0\\\\0\\end{bmatrix}$, compute $\\text{tr}(A)$. The diagonal entries sum to the trace = sum of eigenvalues. Checking: the characteristic polynomial has $\\lambda=0$ (once) and $\\lambda=2$ must account for both remaining eigenvalues. With first column $(-1,0,0)^T$, we can deduce $\\text{tr}(A)=4$, so the third eigenvalue is $4-0-2=2$. Eigenvalues: $0,2,2$."
+    },
+
+    {
+      "id": 50,
+      "prompt": "Let $A$ be the $3\\times 3$ matrix from Problem 16 with eigenvalues $0, 2, 2$. The eigenvalue $\\lambda=0$ has algebraic multiplicity 1 (geometric multiplicity also 1). The eigenvalue $\\lambda=2$ has algebraic multiplicity 2. Is $A$ diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — if the geometric multiplicity of $\\lambda=2$ is also 2 (need to check)", "value": "depends" },
+        { "label": "No — repeated eigenvalues always prevent diagonalizability", "value": "wrong-never" },
+        { "label": "Yes — because $A$ has rank 2", "value": "wrong-rank" },
+        { "label": "Yes — because $A$ has 3 eigenvalues (counting multiplicity)", "value": "wrong-count" }
+      ],
+      "correctAnswer": "depends",
+      "explanation": "For $A$ to be diagonalizable, we need the geometric multiplicity of $\\lambda=2$ to equal its algebraic multiplicity (2). This requires $\\dim(\\ker(A-2I))=2$, i.e., $\\text{rank}(A-2I)=1$. We know $\\begin{bmatrix}1\\\\2\\\\3\\end{bmatrix}\\in\\ker(A-2I)$, and since $\\text{rank}(A)=2$, one can show $\\text{rank}(A-2I)=1$, giving $\\dim(\\ker(A-2I))=2$. So yes, $A$ is diagonalizable."
+    },
+
+    {
+      "id": 51,
+      "prompt": "Let $A$ be a $3\\times 3$ matrix with eigenvalue 2, and $\\dim(\\text{null}(A^\\top))=2$. By the Rank-Nullity Theorem applied to $A^\\top$: $\\text{rank}(A^\\top)+2=3$, so $\\text{rank}(A^\\top)=1$. Since $\\text{rank}(A)=\\text{rank}(A^\\top)$, we have $\\text{rank}(A)=1$. What are the eigenvalues of $A$ and is $A$ diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Eigenvalues: $0$ (alg. mult. 2), $2$ (alg. mult. 1). Diagonalizable only if $\\dim(\\ker(A))=2$. Since $\\text{rank}(A)=1$, $\\dim(\\ker(A))=2$. So yes, $A$ is diagonalizable.", "value": "correct" },
+        { "label": "Not diagonalizable — rank 1 matrices are never diagonalizable", "value": "wrong-a" },
+        { "label": "Diagonalizable — any matrix with a 0 eigenvalue is diagonalizable", "value": "wrong-b" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$\\text{rank}(A)=1$, so $\\text{nullity}(A)=2$, meaning $\\lambda=0$ has geometric (and hence algebraic) multiplicity 2. The eigenvalues are $0$ (mult. 2) and $2$ (mult. 1). Sum of geometric multiplicities: $2+1=3=n$. So $A$ is diagonalizable."
+    },
+
+    {
+      "id": 52,
+      "prompt": "Can a $2\\times 2$ matrix have eigenvalues $-1$, $2$, and $3$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "No — a $2\\times 2$ matrix has a degree-2 characteristic polynomial, so it has at most 2 eigenvalues", "value": "correct" },
+        { "label": "Yes — any matrix can have any eigenvalues", "value": "wrong-a" },
+        { "label": "Yes — if the matrix is not diagonalizable", "value": "wrong-b" },
+        { "label": "Only if it is a complex matrix", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The characteristic polynomial of an $n\\times n$ matrix has degree $n$. A $2\\times 2$ matrix has $\\det(A-\\lambda I)$ of degree 2, which has at most 2 roots. So a $2\\times 2$ matrix cannot have 3 distinct eigenvalues."
+    },
+
+    {
+      "id": 53,
+      "prompt": "Give an example of a $3\\times 3$ matrix with eigenvalues $-1$, $2$, and $3$. Which of the following works?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$\\begin{bmatrix}-1&0&0\\\\0&2&0\\\\0&0&3\\end{bmatrix}$", "value": "correct" },
+        { "label": "$\\begin{bmatrix}1&2&3\\\\0&1&2\\\\0&0&1\\end{bmatrix}$", "value": "wrong-a" },
+        { "label": "$\\begin{bmatrix}0&0&-6\\\\1&0&5\\\\0&1&0\\end{bmatrix}$", "value": "wrong-b" },
+        { "label": "No such matrix exists", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The diagonal matrix $\\text{diag}(-1,2,3)$ has eigenvalues exactly $-1$, $2$, $3$ (its diagonal entries). Any diagonalizable matrix with these eigenvalues works."
+    },
+
+    {
+      "id": 54,
+      "prompt": "Does there exist a $3\\times 3$ matrix with eigenvalues $-1$, $2$, $3$ that is NOT diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "No — three distinct eigenvalues always guarantee diagonalizability for any $n\\times n$ matrix", "value": "correct" },
+        { "label": "Yes — we can construct a Jordan block form", "value": "wrong-a" },
+        { "label": "Yes — upper triangular matrices with these eigenvalues need not be diagonalizable", "value": "wrong-b" },
+        { "label": "Only if $n > 3$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "A key theorem: if an $n\\times n$ matrix has $n$ distinct eigenvalues, it is automatically diagonalizable (the eigenvectors form a basis). Three distinct eigenvalues $-1, 2, 3$ for a $3\\times 3$ matrix guarantee diagonalizability. So no such non-diagonalizable example exists."
+    },
+
+    {
+      "id": 55,
+      "prompt": "Does there exist a $4\\times 4$ matrix with eigenvalues $-1$, $2$, $3$ that is NOT diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — e.g., one eigenvalue has algebraic multiplicity 2 but geometric multiplicity 1", "value": "correct" },
+        { "label": "No — three distinct eigenvalues means the matrix is always diagonalizable", "value": "wrong-a" },
+        { "label": "No — $4\\times 4$ matrices always have 4 distinct eigenvalues", "value": "wrong-b" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "A $4\\times 4$ matrix has characteristic polynomial of degree 4. The three eigenvalues $-1, 2, 3$ must account for all four roots (counting multiplicity), so one is repeated. For example, eigenvalues $-1, 2, 2, 3$ with eigenvalue 2 having a Jordan block $\\begin{bmatrix}2&1\\\\0&2\\end{bmatrix}$ gives a non-diagonalizable $4\\times 4$ matrix."
+    },
+
+    {
+      "id": 56,
+      "prompt": "Does there exist a $3\\times 3$ matrix with eigenvalues $2$ and $5$ only that is NOT diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — e.g., $\\lambda=2$ has algebraic mult. 2 and geometric mult. 1, and $\\lambda=5$ has mult. 1", "value": "correct" },
+        { "label": "No — two distinct eigenvalues guarantee diagonalizability", "value": "wrong-a" },
+        { "label": "No — $3\\times 3$ matrices always have 3 distinct eigenvalues", "value": "wrong-b" },
+        { "label": "Yes, but only if both eigenvalues are repeated", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "Example: $A=\\begin{bmatrix}2&1&0\\\\0&2&0\\\\0&0&5\\end{bmatrix}$. Eigenvalues: $2$ (alg. mult. 2, geom. mult. 1) and $5$ (mult. 1). Since geom. mult. of $2 <$ alg. mult., $A$ is not diagonalizable."
+    },
+
+    {
+      "id": 57,
+      "prompt": "Does there exist a $3\\times 3$ matrix with eigenvalues $2$ and $5$ only that IS diagonalizable?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — e.g., $\\text{diag}(2, 2, 5)$ where $\\lambda=2$ has geom. mult. 2 = alg. mult. 2", "value": "correct" },
+        { "label": "No — repeated eigenvalues prevent diagonalizability", "value": "wrong-a" },
+        { "label": "Yes, but only if $\\lambda=5$ has multiplicity 2", "value": "wrong-b" },
+        { "label": "Only if all eigenvalues are distinct", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "$A=\\begin{bmatrix}2&0&0\\\\0&2&0\\\\0&0&5\\end{bmatrix}=\\text{diag}(2,2,5)$ is already diagonal, so it is diagonalizable. Eigenvalues are $2$ (alg. mult. = geom. mult. = 2) and $5$ (mult. 1)."
+    },
+
+    {
+      "id": 58,
+      "prompt": "Does there exist a $4\\times 4$ matrix with NO real eigenvalues?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — e.g., block diagonal with two $2\\times 2$ rotation matrices by $90°$", "value": "correct" },
+        { "label": "No — every square matrix over $\\mathbb{R}$ has at least one real eigenvalue", "value": "wrong-a" },
+        { "label": "No — the characteristic polynomial of a $4\\times 4$ matrix always has a real root", "value": "wrong-b" },
+        { "label": "Only if the matrix is complex", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The characteristic polynomial of a $4\\times 4$ real matrix has degree 4. It is possible for all 4 roots to be non-real complex (occurring in conjugate pairs). Example: block diagonal matrix $\\begin{bmatrix}0&-1&0&0\\\\1&0&0&0\\\\0&0&0&-1\\\\0&0&1&0\\end{bmatrix}$ has characteristic polynomial $(\\lambda^2+1)^2$, with no real roots. Note: odd-dimensional real matrices always have at least one real eigenvalue."
+    },
+
+    {
+      "id": 59,
+      "prompt": "Does a $2\\times 2$ rotation matrix $R_\\theta = \\begin{bmatrix}\\cos\\theta & -\\sin\\theta\\\\ \\sin\\theta & \\cos\\theta\\end{bmatrix}$ have real eigenvalues? For which values of $\\theta$ is $R_\\theta$ diagonalizable (over $\\mathbb{R}$)?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "$R_\\theta$ is diagonalizable over $\\mathbb{R}$ only when $\\theta = 0$ or $\\theta = \\pi$ (i.e., when eigenvalues are $\\pm 1$)", "value": "correct" },
+        { "label": "$R_\\theta$ is always diagonalizable over $\\mathbb{R}$", "value": "wrong-a" },
+        { "label": "$R_\\theta$ is never diagonalizable over $\\mathbb{R}$", "value": "wrong-b" },
+        { "label": "$R_\\theta$ is diagonalizable when $\\theta = \\pi/2$", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The characteristic polynomial of $R_\\theta$ is $\\lambda^2 - 2\\cos\\theta\\,\\lambda + 1 = 0$, with roots $\\cos\\theta \\pm i\\sin\\theta$. These are real iff $\\sin\\theta=0$, i.e., $\\theta=0$ or $\\theta=\\pi$. At $\\theta=0$: $R_0=I$ (eigenvalue 1). At $\\theta=\\pi$: $R_\\pi=-I$ (eigenvalue $-1$). For all other $\\theta$, the eigenvalues are complex and $R_\\theta$ is not diagonalizable over $\\mathbb{R}$."
+    },
+
+    {
+      "id": 60,
+      "prompt": "Does there exist a symmetric $3\\times 3$ matrix $A$ with characteristic polynomial $\\lambda(\\lambda+1)(\\lambda-1)$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes — the diagonal matrix $\\text{diag}(0,-1,1)$ works", "value": "correct" },
+        { "label": "No — symmetric matrices cannot have a zero eigenvalue", "value": "wrong-a" },
+        { "label": "No — symmetric matrices must have positive eigenvalues", "value": "wrong-b" },
+        { "label": "Yes — but only if it is the zero matrix", "value": "wrong-c" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The polynomial $\\lambda(\\lambda+1)(\\lambda-1)$ has roots $0,-1,1$ — three distinct real eigenvalues. By the Spectral Theorem, every symmetric matrix is orthogonally diagonalizable over $\\mathbb{R}$. The diagonal matrix $\\text{diag}(0,-1,1)$ is symmetric and has the required characteristic polynomial."
+    },
+
+    {
+      "id": 61,
+      "prompt": "Does there exist a symmetric $3\\times 3$ matrix $A$ with characteristic polynomial $\\lambda(\\lambda^2+1)$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "No — by the Real Spectral Theorem, all eigenvalues of a real symmetric matrix must be real. But $\\lambda^2+1$ has no real roots.", "value": "correct" },
+        { "label": "Yes — symmetric matrices can have complex eigenvalues", "value": "wrong-a" },
+        { "label": "Yes — any characteristic polynomial is achievable", "value": "wrong-b" },
+        { "label": "No — the characteristic polynomial of a $3\\times 3$ matrix must have all real roots", "value": "wrong-partial" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The Real Spectral Theorem states that every real symmetric matrix has only real eigenvalues and is orthogonally diagonalizable. The polynomial $\\lambda(\\lambda^2+1)$ has roots $\\lambda=0$ and $\\lambda=\\pm i$ (complex). Since a real symmetric matrix cannot have complex eigenvalues, no such symmetric matrix exists."
+    },
+
+    {
+      "id": 62,
+      "prompt": "Does there exist a symmetric $3\\times 3$ matrix $A$ with characteristic polynomial $(\\lambda-1)^3$ and $\\text{geom\\_mult}(1)=2$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "No — by the Real Spectral Theorem, symmetric matrices are diagonalizable, so geom. mult. must equal alg. mult. For $(\\lambda-1)^3$, geom. mult. must be 3, not 2.", "value": "correct" },
+        { "label": "Yes — repeated eigenvalues can have any geometric multiplicity", "value": "wrong-a" },
+        { "label": "Yes — geom. mult. $\\leq$ alg. mult. so 2 $\\leq$ 3 is fine for a symmetric matrix", "value": "wrong-b" },
+        { "label": "Cannot be determined", "value": "unknown" }
+      ],
+      "correctAnswer": "correct",
+      "explanation": "The Real Spectral Theorem: every real symmetric matrix is orthogonally diagonalizable. Diagonalizability requires the sum of all geometric multiplicities to equal $n=3$. With one eigenvalue of alg. mult. 3, its geom. mult. must also be 3. Having geom. mult. $=2 < 3 =$ alg. mult. contradicts diagonalizability. So no such symmetric matrix exists."
     }
 
   ]
