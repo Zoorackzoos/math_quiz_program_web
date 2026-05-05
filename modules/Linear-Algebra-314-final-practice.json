@@ -1,156 +1,177 @@
 {
   "id": "math314-final-practice",
   "title": "Math 314 Final Practice",
-  "description": "Linear algebra practice covering vector spaces, transformations, eigenvalues, and diagonalization.",
-  "image": "assets/burning_in_hell.jpg",
+  "description": "Linear algebra with full context and formula-focused answers.",
+  "image": "assets/linear_algebra.png",
   "questions": [
 
-    { "id": 1, "prompt": "Which statement best describes the sets built from vectors u, v, w, z regarding orthogonality, independence, span, and basis in R^3?", "type": "multiple-choice", "choices": [
-      {"label":"u,v,w form an orthogonal basis for R^3; sets with z remain independent but not fully orthogonal","value":"A"},
-      {"label":"All sets are dependent","value":"B"},
-      {"label":"No set spans R^3","value":"C"},
-      {"label":"All sets are orthogonal","value":"D"}
-    ], "correctAnswer": "A", "explanation": "u,v,w are orthogonal → basis. Sets including z lose orthogonality but remain independent." },
+    {
+      "id": 1,
+      "prompt": "Given vectors $$u=\\begin{bmatrix}1\\-2\\1\\end{bmatrix}, v=\\begin{bmatrix}0\\1\\2\\end{bmatrix}, w=\\begin{bmatrix}-5\\-2\\1\\end{bmatrix}$$. Orthogonality uses $$u\\cdot v = 0$$. Are u,v,w orthogonal?",
+      "type": "text",
+      "correctAnswer": "u·v = 0, u·w = 0, v·w = 0",
+      "explanation": "Compute dot products: (1)(0)+(-2)(1)+(1)(2)=0; similarly others = 0."
+    },
 
-    { "id": 2, "prompt": "Given rref(A) with pivots in columns 1 and 2, what must be true?", "type": "multiple-choice", "choices": [
-      {"label":"v1,v2 independent; v3,v4 depend on them","value":"A"},
-      {"label":"All vectors independent","value":"B"},
-      {"label":"Only v4 independent","value":"C"},
-      {"label":"None independent","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Pivot columns correspond to independent vectors." },
+    {
+      "id": 2,
+      "prompt": "Independence rule: orthogonal nonzero vectors ⇒ independent. Given u,v,w above, determine independence.",
+      "type": "text",
+      "correctAnswer": "independent = orthogonal + nonzero",
+      "explanation": "All vectors are nonzero and orthogonal."
+    },
 
-    { "id": 3, "prompt": "Three independent vectors in R^4 span what?", "type": "multiple-choice", "choices": [
-      {"label":"R^4","value":"A"},
-      {"label":"A 3D subspace","value":"B"},
-      {"label":"A line","value":"C"},
-      {"label":"Nothing","value":"D"}
-    ], "correctAnswer": "B", "explanation": "Dimension equals number of independent vectors." },
+    {
+      "id": 3,
+      "prompt": "Span rule: $$span = independent\;vectors\;in\;R^3$$. For 3 independent vectors in R^3, do they span R^3?",
+      "type": "text",
+      "correctAnswer": "span = 3 independent vectors",
+      "explanation": "Dimension matches number of independent vectors."
+    },
 
-    { "id": 4, "prompt": "A 3x3 matrix has 2 eigenvalues with 1D eigenspaces. Is it diagonalizable?", "type": "multiple-choice", "choices": [
-      {"label":"Yes","value":"A"},
-      {"label":"No","value":"B"},
-      {"label":"Only if symmetric","value":"C"},
-      {"label":"Cannot determine","value":"D"}
-    ], "correctAnswer": "B", "explanation": "Need 3 independent eigenvectors." },
+    {
+      "id": 4,
+      "prompt": "Basis rule: $$basis = independent + span$$. For u,v,w in R^3, verify basis.",
+      "type": "text",
+      "correctAnswer": "basis = independent + span",
+      "explanation": "They are independent and span R^3."
+    },
 
-    { "id": 5, "prompt": "A 7x6 matrix has nullity 4. What is its rank?", "type": "multiple-choice", "choices": [
-      {"label":"2","value":"A"},
-      {"label":"3","value":"B"},
-      {"label":"4","value":"C"},
-      {"label":"6","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Rank + nullity = 6." },
+    {
+      "id": 5,
+      "prompt": "Given matrix $$A=\\begin{bmatrix}1&0&-5\\-2&1&0\\1&2&5\\end{bmatrix}$$. Pivot rule: $$independent = pivots = columns$$. Row reduce to check pivots.",
+      "type": "text",
+      "correctAnswer": "pivots = 3 = 3 columns",
+      "explanation": "Row reduction gives 3 pivots ⇒ independent."
+    },
 
-    { "id": 6, "prompt": "If W ⊂ R^5 has dimension 2, what is dim(W^⊥)?", "type": "multiple-choice", "choices": [
-      {"label":"1","value":"A"},
-      {"label":"2","value":"B"},
-      {"label":"3","value":"C"},
-      {"label":"5","value":"D"}
-    ], "correctAnswer": "C", "explanation": "dim(W)+dim(W⊥)=5." },
+    {
+      "id": 6,
+      "prompt": "Rank-nullity formula: $$rank = total\;columns - nullity$$. For a 7x6 matrix with nullity 4.",
+      "type": "text",
+      "correctAnswer": "rank = 6 - 4",
+      "explanation": "Rank = 2."
+    },
 
-    { "id": 7, "prompt": "Why must 4 vectors in R^3 be dependent?", "type": "multiple-choice", "choices": [
-      {"label":"Too many vectors","value":"A"},
-      {"label":"They are orthogonal","value":"B"},
-      {"label":"They span R^4","value":"C"},
-      {"label":"They are zero","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Max independent vectors in R^3 is 3." },
+    {
+      "id": 7,
+      "prompt": "Dimension formula: $$dim(W^\\perp) = n - dim(W)$$. If W ⊂ R^5 has dim 2.",
+      "type": "text",
+      "correctAnswer": "dim(W⊥) = 5 - 2",
+      "explanation": "Dimension balance rule."
+    },
 
-    { "id": 8, "prompt": "A 2D subspace of R^3 is what geometrically?", "type": "multiple-choice", "choices": [
-      {"label":"Line","value":"A"},
-      {"label":"Plane","value":"B"},
-      {"label":"Point","value":"C"},
-      {"label":"Full space","value":"D"}
-    ], "correctAnswer": "B", "explanation": "Dimension 2 → plane." },
+    {
+      "id": 8,
+      "prompt": "Dependence rule: $$dependent = vectors > dimension$$. For 4 vectors in R^3.",
+      "type": "text",
+      "correctAnswer": "dependent = 4 > 3",
+      "explanation": "Cannot exceed dimension."
+    },
 
-    { "id": 9, "prompt": "When is a linear transformation injective?", "type": "multiple-choice", "choices": [
-      {"label":"Kernel = {0}","value":"A"},
-      {"label":"Det=0","value":"B"},
-      {"label":"Square matrix","value":"C"},
-      {"label":"Full row rank","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Injective ↔ trivial null space." },
+    {
+      "id": 9,
+      "prompt": "Injective rule: $$injective = null(A) = 0$$. What defines injectivity?",
+      "type": "text",
+      "correctAnswer": "null space = 0",
+      "explanation": "Only trivial solution."
+    },
 
-    { "id": 10, "prompt": "When is a matrix diagonalizable?", "type": "multiple-choice", "choices": [
-      {"label":"n independent eigenvectors","value":"A"},
-      {"label":"det=0","value":"B"},
-      {"label":"square only","value":"C"},
-      {"label":"distinct rows","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Needs eigenbasis." },
+    {
+      "id": 10,
+      "prompt": "Diagonalization rule: $$diagonalizable = n\;independent\;eigenvectors$$ for nxn matrix.",
+      "type": "text",
+      "correctAnswer": "eigenvectors = n",
+      "explanation": "Forms eigenbasis."
+    },
 
-    { "id": 11, "prompt": "What determines if a matrix is invertible?", "type": "multiple-choice", "choices": [
-      {"label":"Full pivots","value":"A"},
-      {"label":"Zero determinant","value":"B"},
-      {"label":"More rows than columns","value":"C"},
-      {"label":"Orthogonal rows","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Invertible ↔ pivots in all columns." },
+    {
+      "id": 11,
+      "prompt": "Invertibility rule: $$invertible = pivots = n$$. For nxn matrix.",
+      "type": "text",
+      "correctAnswer": "pivots = n",
+      "explanation": "Full rank."
+    },
 
-    { "id": 12, "prompt": "If eigenvalues are known, how is A^{-1} related?", "type": "multiple-choice", "choices": [
-      {"label":"Use diagonalization","value":"A"},
-      {"label":"Transpose it","value":"B"},
-      {"label":"Square it","value":"C"},
-      {"label":"Ignore eigenvalues","value":"D"}
-    ], "correctAnswer": "A", "explanation": "A = PDP^{-1} simplifies inversion." },
+    {
+      "id": 12,
+      "prompt": "Diagonalization inverse: $$A^{-1} = P D^{-1} P^{-1}$$. Identify method.",
+      "type": "text",
+      "correctAnswer": "A^{-1} = P D^{-1} P^{-1}",
+      "explanation": "Inverse via diagonalization."
+    },
 
-    { "id": 13, "prompt": "If eigenvalues are ±1, what is A^2?", "type": "multiple-choice", "choices": [
-      {"label":"Identity","value":"A"},
-      {"label":"Zero","value":"B"},
-      {"label":"Same as A","value":"C"},
-      {"label":"Diagonal only","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Squares of ±1 are 1." },
+    {
+      "id": 13,
+      "prompt": "Eigenvalue power rule: $$A^2 = PDP^{-1} PDP^{-1}$$. If eigenvalues are ±1.",
+      "type": "text",
+      "correctAnswer": "A^2 = 1^2 and (-1)^2",
+      "explanation": "Squares to identity."
+    },
 
-    { "id": 14, "prompt": "Determinant of a diagonalizable matrix equals?", "type": "multiple-choice", "choices": [
-      {"label":"Product of eigenvalues","value":"A"},
-      {"label":"Sum of eigenvalues","value":"B"},
-      {"label":"Trace","value":"C"},
-      {"label":"Zero","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Det = product of eigenvalues." },
+    {
+      "id": 14,
+      "prompt": "Determinant formula: $$det(A) = product\;of\;eigenvalues$$.",
+      "type": "text",
+      "correctAnswer": "det = λ1 * λ2 * λ3",
+      "explanation": "Eigenvalue property."
+    },
 
-    { "id": 15, "prompt": "Which systems form a vector space?", "type": "multiple-choice", "choices": [
-      {"label":"Homogeneous systems","value":"A"},
-      {"label":"Inconsistent systems","value":"B"},
-      {"label":"Random systems","value":"C"},
-      {"label":"None","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Solution sets of Ax=0 are subspaces." },
+    {
+      "id": 15,
+      "prompt": "Vector space rule: $$Ax=0 ⇒ subspace$$.",
+      "type": "text",
+      "correctAnswer": "homogeneous = vector space",
+      "explanation": "Closed under operations."
+    },
 
-    { "id": 16, "prompt": "Rank(A)=2 for 3x3. What is nullity?", "type": "multiple-choice", "choices": [
-      {"label":"1","value":"A"},
-      {"label":"2","value":"B"},
-      {"label":"3","value":"C"},
-      {"label":"0","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Rank-nullity." },
+    {
+      "id": 16,
+      "prompt": "Rank-nullity again: $$rank + nullity = n$$ for 3x3 matrix with rank 2.",
+      "type": "text",
+      "correctAnswer": "nullity = 3 - 2",
+      "explanation": "Nullity = 1."
+    },
 
-    { "id": 17, "prompt": "If dim(null(A^T))=2 for 3x3, what about diagonalizability?", "type": "multiple-choice", "choices": [
-      {"label":"Not enough info","value":"A"},
-      {"label":"Yes","value":"B"},
-      {"label":"No","value":"C"},
-      {"label":"Always","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Need eigenvector info." },
+    {
+      "id": 17,
+      "prompt": "Transpose null space: $$dim(null(A^T)) = m - rank(A)$$.",
+      "type": "text",
+      "correctAnswer": "dim = 3 - rank",
+      "explanation": "Relates row space."
+    },
 
-    { "id": 18, "prompt": "Which matrices may fail to diagonalize?", "type": "multiple-choice", "choices": [
-      {"label":"Repeated eigenvalues","value":"A"},
-      {"label":"Distinct eigenvalues","value":"B"},
-      {"label":"Identity","value":"C"},
-      {"label":"Orthogonal","value":"D"}
-    ], "correctAnswer": "A", "explanation": "May lack eigenvectors." },
+    {
+      "id": 18,
+      "prompt": "Diagonalization issue: $$repeated\;eigenvalues ⇒ may\;lack\;eigenvectors$$.",
+      "type": "text",
+      "correctAnswer": "repeated ≠ guaranteed",
+      "explanation": "Geometric multiplicity issue."
+    },
 
-    { "id": 19, "prompt": "Which guarantees diagonalizability?", "type": "multiple-choice", "choices": [
-      {"label":"Distinct eigenvalues","value":"A"},
-      {"label":"Zero determinant","value":"B"},
-      {"label":"Rank deficiency","value":"C"},
-      {"label":"Symmetry only","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Distinct eigenvalues ⇒ independent eigenvectors." },
+    {
+      "id": 19,
+      "prompt": "Guarantee rule: $$distinct\;eigenvalues ⇒ independent\;eigenvectors$$.",
+      "type": "text",
+      "correctAnswer": "distinct ⇒ independent",
+      "explanation": "Always diagonalizable."
+    },
 
-    { "id": 20, "prompt": "When is a rotation matrix diagonalizable over R?", "type": "multiple-choice", "choices": [
-      {"label":"θ = 0 or π","value":"A"},
-      {"label":"Any θ","value":"B"},
-      {"label":"Never","value":"C"},
-      {"label":"Only θ=π/2","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Otherwise eigenvalues are complex." },
+    {
+      "id": 20,
+      "prompt": "Rotation matrix eigenvalues: $$λ = cosθ ± i sinθ$$. When real?",
+      "type": "text",
+      "correctAnswer": "θ = 0 or π",
+      "explanation": "Otherwise complex."
+    },
 
-    { "id": 21, "prompt": "What property defines symmetric matrices?", "type": "multiple-choice", "choices": [
-      {"label":"A = A^T","value":"A"},
-      {"label":"A^{-1}=A","value":"B"},
-      {"label":"det=1","value":"C"},
-      {"label":"Trace=0","value":"D"}
-    ], "correctAnswer": "A", "explanation": "Definition of symmetry." }
+    {
+      "id": 21,
+      "prompt": "Symmetric definition: $$A = A^T$$.",
+      "type": "text",
+      "correctAnswer": "A = A^T",
+      "explanation": "Matrix equals its transpose."
+    }
 
   ]
 }
