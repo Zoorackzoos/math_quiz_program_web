@@ -1,126 +1,91 @@
 {
-  "id": "math314-practice-final-full",
-  "title": "Math 314: Practice Final Exam (Full)",
-  "description": "Full conversion of the May 2026 practice final covering the entirety of Linear Algebra coursework.",
-  "image": "assets/linear_algebra.png",
+  "id": "math314-final-exam-practice-2026",
+  "title": "Math 314: Final Exam Practice (Spring 2026)",
+  "description": "Comprehensive practice questions covering row equivalence, subspaces, determinants, eigenvalues, orthogonality, and linear transformations.",
+  "image": "assets/linear_algebra_final.png",
   "questions": [
     {
       "id": 1,
-      "prompt": "True or False: If $A$ and $B$ are row-equivalent matrices then we always have $\\text{row}(A)=\\text{row}(B)$[cite: 5].",
+      "prompt": "True or False: If $A$ and $B$ are row-equivalent matrices, then $\\text{col}(A) = \\text{col}(B)$.",
       "type": "multiple-choice",
       "choices": [
         { "label": "True", "value": "true" },
-        { "label": "False", "value": "false" }
+        { "label": "False — row operations preserve the row space, but can change the column space.", "value": "false" }
       ],
-      "correctAnswer": "true",
-      "explanation": "Row operations are linear combinations of rows; therefore, the span of the rows (the row space) remains unchanged[cite: 5]."
+      "correctAnswer": "false",
+      "explanation": "Row operations (like swapping rows) do not generally preserve the column space. For example, $A = \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix}$ and $B = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix}$ are row-equivalent, but their column spaces are different axes in $\\mathbb{R}^2$[cite: 5]."
     },
     {
       "id": 2,
-      "prompt": "True or False: A system of 3 equations in 2 unknowns must be inconsistent[cite: 5].",
+      "prompt": "True or False: For any matrix $A$, $\\text{dim}(\\text{row}(A)) = \\text{dim}(\\text{col}(A))$.",
       "type": "multiple-choice",
       "choices": [
-        { "label": "True", "value": "true" },
-        { "label": "False — it could have a unique solution or infinitely many if equations are redundant.", "value": "false" }
+        { "label": "True — this dimension is known as the rank of the matrix.", "value": "true" },
+        { "label": "False", "value": "false" }
       ],
-      "correctAnswer": "false",
-      "explanation": "While it can be inconsistent, it is not mandatory. For example, if all three equations represent the same line, there are infinitely many solutions[cite: 5]."
+      "correctAnswer": "true",
+      "explanation": "The Rank Theorem states that the dimension of the row space and the column space are always equal to the number of pivot positions in the matrix[cite: 5]."
     },
     {
       "id": 3,
-      "prompt": "True or False: For any matrix $A$, $(\\text{row}(A))^{\\perp}=\\text{null}(A)$[cite: 5].",
-      "type": "multiple-choice",
-      "choices": [
-        { "label": "True", "value": "true" },
-        { "label": "False", "value": "false" }
-      ],
-      "correctAnswer": "true",
-      "explanation": "The Fundamental Theorem of Linear Algebra states that the null space is the orthogonal complement of the row space[cite: 5]."
-    },
-    {
-      "id": 4,
-      "prompt": "True or False: If a $4\\times7$ matrix $A$ has 4 pivot columns, then $\\text{col}(A)=\\mathbb{R}^{4}$[cite: 5].",
-      "type": "multiple-choice",
-      "choices": [
-        { "label": "True — 4 linearly independent vectors in $\\mathbb{R}^4$ span $\\mathbb{R}^4$.", "value": "true" },
-        { "label": "False", "value": "false" }
-      ],
-      "correctAnswer": "true",
-      "explanation": "Since the column space is a subspace of $\\mathbb{R}^4$ and its dimension (rank) is 4, it must be the entire space[cite: 5]."
-    },
-    {
-      "id": 5,
-      "prompt": "Consider a $6\\times6$ matrix $A$ having $\\text{dim}(\\text{null}(A))=1$. What is the dimension of $\\text{col}(A)$?[cite: 5]",
+      "prompt": "Consider a $6 \\times 6$ matrix $A$ where $\\text{dim}(\\text{null}(A)) = 1$. What is the dimension of $\\text{col}(A)$?",
       "type": "multiple-choice",
       "choices": [
         { "label": "5", "value": "5" },
-        { "label": "1", "value": "1" },
         { "label": "6", "value": "6" },
+        { "label": "1", "value": "1" },
         { "label": "0", "value": "0" }
       ],
       "correctAnswer": "5",
-      "explanation": "Rank + Nullity = $n$. Here, $rank + 1 = 6$, so rank (the dimension of the column space) is 5[cite: 5]."
+      "explanation": "By the Rank-Nullity Theorem, $\\text{rank}(A) + \\text{nullity}(A) = n$. Here, $n=6$ and $\\text{nullity}(A)=1$, so $\\text{rank}(A) = 6 - 1 = 5$[cite: 5]."
+    },
+    {
+      "id": 4,
+      "prompt": "Is a $6 \\times 6$ matrix $A$ invertible if $\\text{dim}(\\text{null}(A)) = 1$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "Yes", "value": "yes" },
+        { "label": "No — an invertible matrix must have a nullity of zero.", "value": "no" }
+      ],
+      "correctAnswer": "no",
+      "explanation": "According to the Invertible Matrix Theorem, a square matrix is invertible if and only if its null space contains only the zero vector ($\\text{dim}(\\text{null}(A)) = 0$)[cite: 5]."
+    },
+    {
+      "id": 5,
+      "prompt": "If matrix $C$ has determinant 3 and matrix $D$ has determinant 4 (both $3 \\times 3$), what is the determinant of the product $CD$?",
+      "type": "multiple-choice",
+      "choices": [
+        { "label": "7", "value": "7" },
+        { "label": "12", "value": "12" },
+        { "label": "34", "value": "34" },
+        { "label": "Cannot be determined", "value": "none" }
+      ],
+      "correctAnswer": "12",
+      "explanation": "The determinant of a product is the product of the determinants: $\\det(CD) = \\det(C)\\det(D) = 3 \\times 4 = 12$[cite: 5]."
     },
     {
       "id": 6,
-      "prompt": "What is the smallest possible dimension for $\\text{null}(B)$ if $B$ is a $10\\times6$ matrix?[cite: 5]",
+      "prompt": "Suppose $A$ is a diagonalizable $4 \\times 4$ matrix with eigenvalues 1, 1, 2, and 5. Compute the determinant of $A$.",
       "type": "multiple-choice",
       "choices": [
-        { "label": "0 — if the columns are linearly independent.", "value": "0" },
-        { "label": "4", "value": "4" },
-        { "label": "6", "value": "6" },
-        { "label": "10", "value": "10" }
+        { "label": "9", "value": "9" },
+        { "label": "10", "value": "10" },
+        { "label": "20", "value": "20" },
+        { "label": "1", "value": "1" }
       ],
-      "correctAnswer": "0",
-      "explanation": "A $10\\times6$ matrix has 6 columns. If all 6 columns are pivots, the rank is 6, making the nullity $6 - 6 = 0$[cite: 5]."
+      "correctAnswer": "10",
+      "explanation": "The determinant of a matrix is equal to the product of its eigenvalues: $1 \\times 1 \\times 2 \\times 5 = 10$[cite: 5]."
     },
     {
       "id": 7,
-      "prompt": "Is a $3\\times3$ matrix $C$ with 3 distinct eigenvalues diagonalizable?[cite: 5]",
+      "prompt": "Is $\\mathbf{v} = \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix}$ an eigenvector for $A = \\begin{bmatrix} 3 & 2 \\\\ 1 & 4 \\end{bmatrix}$?",
       "type": "multiple-choice",
       "choices": [
-        { "label": "Yes — any $n\\times n$ matrix with $n$ distinct eigenvalues is diagonalizable.", "value": "yes" },
-        { "label": "No", "value": "no" }
+        { "label": "Yes — $A\\mathbf{v} = 5\\mathbf{v}$, so the eigenvalue is 5.", "value": "yes" },
+        { "label": "No — $A\\mathbf{v}$ is not a multiple of $\\mathbf{v}$.", "value": "no" }
       ],
       "correctAnswer": "yes",
-      "explanation": "Distinct eigenvalues guarantee linearly independent eigenvectors, which provide the basis for diagonalization[cite: 5]."
-    },
-    {
-      "id": 8,
-      "prompt": "Compute the determinant of $A = \\begin{bmatrix} 1 & 0 & -2 & 3 \\\\ -1 & 3 & 3 & -1 \\\\ 0 & 6 & 1 & 4 \\\\ 0 & 0 & 0 & 2 \\end{bmatrix}$[cite: 5].",
-      "type": "multiple-choice",
-      "choices": [
-        { "label": "30", "value": "30" },
-        { "label": "0", "value": "0" },
-        { "label": "15", "value": "15" },
-        { "label": "-30", "value": "-30" }
-      ],
-      "correctAnswer": "30",
-      "explanation": "Expanding along the bottom row (which has three zeros) gives $2 \\times \\det(\\text{submatrix})$. Further expansion yields a final result of 30[cite: 5]."
-    },
-    {
-      "id": 9,
-      "prompt": "Find all values of $a$ and $b$ for which the system $\\begin{cases} x_1 + ax_2 = 2 \\\\ 4x_1 + 8x_2 = b \\end{cases}$ is inconsistent[cite: 5].",
-      "type": "multiple-choice",
-      "choices": [
-        { "label": "$a=2$ and $b \\neq 8$", "value": "correct" },
-        { "label": "$a=2$ and $b=8$", "value": "inf" },
-        { "label": "$a \\neq 2$", "value": "unique" },
-        { "label": "$b=8$ regardless of $a$", "value": "wrong" }
-      ],
-      "correctAnswer": "correct",
-      "explanation": "The second equation is $4(x_1 + 2x_2) = b$. If $a=2$, the left sides are multiples. If $b \\neq 8$, the equations contradict each other[cite: 5]."
-    },
-    {
-      "id": 10,
-      "prompt": "Let $W = \\text{span} \\{ \\mathbf{u}_1, \\mathbf{u}_2, \\mathbf{u}_3 \\}$ where $\\mathbf{u}_1=[1,1,1,1]^T$, $\\mathbf{u}_2=[1,-1,-1,1]^T$, and $\\mathbf{u}_3=[1,1,-1,-1]^T$. Is this an orthogonal set?[cite: 5]",
-      "type": "multiple-choice",
-      "choices": [
-        { "label": "Yes — the dot product of every pair is zero.", "value": "yes" },
-        { "label": "No — $\\mathbf{u}_1 \\cdot \\mathbf{u}_2 \\neq 0$.", "value": "no" }
-      ],
-      "correctAnswer": "yes",
-      "explanation": "$\\mathbf{u}_1 \\cdot \\mathbf{u}_2 = 1-1-1+1=0$; $\\mathbf{u}_1 \\cdot \\mathbf{u}_3 = 1+1-1-1=0$; $\\mathbf{u}_2 \\cdot \\mathbf{u}_3 = 1-1+1-1=0$. Since all pairs are orthogonal, the set is orthogonal[cite: 5]."
+      "explanation": "$A\\mathbf{v} = \\begin{bmatrix} 3 & 2 \\\\ 1 & 4 \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 5 \\\\ 5 \\end{bmatrix} = 5 \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix}$. Since the output is a scalar multiple of the input, $\\mathbf{v}$ is an eigenvector[cite: 5]."
     }
   ]
 }
